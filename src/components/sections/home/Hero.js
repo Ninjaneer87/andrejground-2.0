@@ -1,0 +1,124 @@
+import { Button, makeStyles, Container, Grid, Box } from '@material-ui/core';
+import { Parallax } from 'react-parallax';
+import { Link } from 'react-router-dom';
+import heroImage from '../../../assets/img/bg.jpg';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    textAlign: 'center',
+    alignItems: 'center',
+    minHeight: '100vh',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)'
+  },
+  welcomeIntro: {
+    fontSize: '5.2vw',
+    fontWeight: '100',
+    lineHeight: '1.5',
+    // maxWidth: '80vw',
+    color: '#fff',
+    textAlign: 'center',
+    marginBottom: '30px',
+    [theme.breakpoints.up(768)]: {
+      fontSize: '3vw',
+    },
+    [theme.breakpoints.up(992)]: {
+      fontSize: '2.5vw',
+      // width: '45vw',
+    },
+    [theme.breakpoints.up(1400)]: {
+      textAlign: 'start',
+      width: '30vw',
+      fontSize: '1.7vw',
+    },
+  },
+  welcomeTitle: {
+    color: '#fff',
+    fontWeight: 100,
+    fontSize: '9vw',
+    textAlign: 'center',
+    textTransform: 'uppercase',
+    lineHeight: .9,
+    position: 'relative',
+    marginBottom: '30px',
+    [theme.breakpoints.up(768)]: {
+      fontSize: '6vw',
+    },
+    [theme.breakpoints.up(960)]: {
+    },
+    [theme.breakpoints.up(1400)]: {
+      textAlign: 'start',
+      width: '65vw',
+      fontSize: '4.2vw',
+    },
+    '&::after': {
+      content: 'attr(data-text)',
+      width: 'inherit',
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: '95%',
+      color: 'hsla(0,0%,100%,.54)',
+      transform: 'scaleY(-1)',
+      lineHeight: '.85em',
+      background: 'linear-gradient(0deg,hsla(0,0%,100%,.721),transparent 50%)',
+      backgroundClip: 'text',
+      '-webkit-background-clip': 'text',
+      filter: 'blur(1.5px)',
+      [theme.breakpoints.up(600)]: {
+        color: 'hsla(0,0%,100%,.34)',
+      },
+      [theme.breakpoints.up(960)]: {
+        color: 'hsla(0,0%,100%,.034)',
+      }
+    }
+  }
+}));
+const Hero = () => {
+  const classes = useStyles();
+
+  return (
+    <Parallax blur={1} bgImage={heroImage} bgImageAlt="tech" strength={300} bgImageStyle={{ top: '-130px' }}>
+      <section className={classes.root}>
+        <Container maxWidth='lg' >
+          <Grid container spacing={3} >
+            <Grid item lg={8}>
+              <div className={classes.welcomeIntro}>
+                Hello there! I am Andrej Forgač, a front-end developer.
+              </div>
+              <div className={classes.welcomeTitle} data-text='WELCOME TO THE ANDREJGROUND'>
+                Welcome to the <span className='cyan'>Andrej</span>Ground
+              </div>
+            </Grid>
+            <Grid item xs={12} lg={4}>
+              <Box display='flex' alignItems='center' justifyContent='center' flexDirection='column' height='100%'>
+                <Button
+                  fullWidth
+                  variant='outlined'
+                  color='secondary'
+                  style={{ marginBottom: '20px', maxWidth: '500px' }}
+                  component={Link}
+                  to='/portfolio'
+                >
+                  PROJECTS
+                </Button>
+                <Button
+                  fullWidth
+                  variant='contained'
+                  color='secondary'
+                  style={{ maxWidth: '500px' }}
+                  component={Link}
+                  to='/contact'
+                >
+                  CONTACT
+                </Button>
+              </Box>
+            </Grid>
+          </Grid>
+        </Container>
+      </section>
+    </Parallax>
+  );
+};
+
+export default Hero;
