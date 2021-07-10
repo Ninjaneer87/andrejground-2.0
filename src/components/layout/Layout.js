@@ -1,3 +1,4 @@
+import React from 'react';
 import { makeStyles } from "@material-ui/core";
 import MyAppBar from './MyAppBar';
 import MyDrawer from './MyDrawer';
@@ -8,7 +9,7 @@ const useStyles = makeStyles(theme => ({
     // display: 'flex'
   },
   page: {
-    paddingBottom: theme.spacing(3),
+    // paddingBottom: theme.spacing(3),
   },
 }));
 

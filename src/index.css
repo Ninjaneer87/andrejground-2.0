@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,400,500,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap');
 
 body {
   margin: 0;
@@ -7,8 +7,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: radial-gradient(circle, rgba(38, 50, 56,1) 0%, rgba(96,125,139,1) 100%);
-  background: rgba(38, 50, 56,1);
+  /* background: radial-gradient(circle, rgba(38, 50, 56,1) 0%, rgba(96,125,139,1) 100%); */
+  background: #212121;
+}
+body.dark {
+  background: #212121;
+}
+a {
+  text-decoration: none;
+  color: unset;
+}
+p, div, section{
+  box-sizing: border-box;
 }
 
 code {
@@ -21,7 +31,7 @@ code {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 1rem;
+  width: 0.5rem;
   z-index: 2;
 }
 
@@ -95,4 +105,10 @@ code {
     transform:translateY(0);
     opacity:1;
   } */
+}
+
+@keyframes rotate {
+  0% {transform: rotate(0);}
+  /* 50% {transform: rotate(180deg);} */
+  100% {transform: rotate(360deg);}
 }

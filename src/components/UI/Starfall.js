@@ -1,3 +1,4 @@
+import React from 'react';
 import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
@@ -7,7 +8,9 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     bottom: 0,
     right: 0,
-    zIndex: -1
+    zIndex: -1,
+    background: theme.palette.custom.backgroundColor,
+    transition: `background ${theme.transitions.duration.short}ms ease`,
   },
   lines: {
     position: 'absolute',
@@ -32,10 +35,10 @@ const useStyles = makeStyles(theme => ({
       position: 'absolute',
       height: '15vh',
       width: '100%',
-      transition: 'transform 250ms ease',
+      transition: `transform ${theme.transitions.duration.short}ms ease`,
       top: '-50%',
       left: 0,
-      background: 'linear-gradient(to bottom, transparent 0%, #00e5ffad 75%, #fff 100%)',
+      background: `linear-gradient(to bottom, transparent 0%, #00e5ffad 75%, ${theme.palette.custom.textColor} 100%)`,
       animation: 'drop 7s 0s infinite',
       animationFillMode: 'forwards',
       animationTimingFunction: 'cubic-bezier(0.4, 0.26, 0, 0.97)',

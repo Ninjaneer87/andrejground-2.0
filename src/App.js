@@ -1,50 +1,38 @@
-
-import { unstable_createMuiStrictModeTheme as createMuiTheme, ThemeProvider } from '@material-ui/core';
-import { blueGrey, cyan } from '@material-ui/core/colors';
+import React from 'react';
+import { ThemeProvider } from '@material-ui/core';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Portfolio from './pages/Portfolio';
 import Home from './pages/Home';
 import Layout from './components/layout/Layout';
-
-const theme = createMuiTheme({
-  palette: {
-    primary: blueGrey,
-    secondary: cyan,
-    custom: {
-      cyan: cyan['A400'],
-      darkBlue: blueGrey[900],
-    },
-  },
-  typography: {
-    fontFamily: 'Montserrat',
-    fontWeightLight: 200,
-    fontWeightRegular: 500,
-    fontWeightMedium: 600,
-    fontWeightBold: 700,
-  }
-});
+import { darkTheme, lightTheme } from './themes';
+import { useContext } from 'react';
+import ThemeContext from './context/themeContext';
 
 function App() {
+  const themeContext = useContext(ThemeContext);
+  
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={themeContext.themeMode === 'dark' ? darkTheme : lightTheme}>
       <Router>
         <Layout>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/portfolio">
-              <Portfolio />
-            </Route>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/contact">
-              <Contact />
-            </Route>
-          </Switch>
+          {/* <Paper> */}
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/portfolio">
+                <Portfolio />
+              </Route>
+              <Route path="/about">
+                <About />
+              </Route>
+              <Route path="/contact">
+                <Contact />
+              </Route>
+            </Switch>
+          {/* </Paper> */}
         </Layout>
       </Router>
     </ThemeProvider>

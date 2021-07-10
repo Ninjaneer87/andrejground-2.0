@@ -1,23 +1,18 @@
-import Hero from "../components/sections/home/Hero"
+import React from 'react';
 import Starfall from "../components/UI/Starfall"
+import Hero from "../components/sections/home/Hero"
+import Mission from "../components/sections/home/Mission"
+import Toolbox from "../components/sections/home/Toolbox"
+import Projects from "../components/sections/home/Projects"
 
 const Home = () => {
   return (
-    <div className='fadeIn'>
-      <Hero />
+    <div>
       <Starfall />
-      <h1>ksnm</h1>
-      <h1>ksnm</h1>
-      <h1>ksnm</h1>
-      <h1>ksnm</h1>
-      <h1>ksnm</h1>
-      <h1>ksnm</h1>
-      <h1>ksnm</h1>
-      <h1>ksnm</h1>
-      <h1>ksnm</h1>
-      <h1>ksnm</h1>
-      <h1>ksnm</h1>
-      <h1>ksnm</h1>
+      <Hero />
+      <Mission />
+      <Toolbox />
+      <Projects />
     </div>
   );
 };

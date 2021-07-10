@@ -1,15 +1,20 @@
+import React from 'react';
 import { Button, makeStyles, Container, Grid, Box } from '@material-ui/core';
 import { Parallax } from 'react-parallax';
 import { Link } from 'react-router-dom';
 import heroImage from '../../../assets/img/bg.jpg';
+import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 
 const useStyles = makeStyles(theme => ({
+  paralaxRoot: {
+    // boxShadow: `0px 0px 20px ${theme.palette.custom.boxShadowColor}`,
+  },
   root: {
     display: 'flex',
     textAlign: 'center',
     alignItems: 'center',
     minHeight: '100vh',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)'
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
   },
   welcomeIntro: {
     fontSize: '5.2vw',
@@ -21,14 +26,14 @@ const useStyles = makeStyles(theme => ({
     marginBottom: '30px',
     [theme.breakpoints.up(768)]: {
       fontSize: '3vw',
+      marginBottom: '50px',
     },
     [theme.breakpoints.up(992)]: {
       fontSize: '2.5vw',
-      // width: '45vw',
     },
     [theme.breakpoints.up(1400)]: {
       textAlign: 'start',
-      width: '30vw',
+      width: '20vw',
       fontSize: '1.7vw',
     },
   },
@@ -58,7 +63,7 @@ const useStyles = makeStyles(theme => ({
       left: 0,
       right: 0,
       top: '95%',
-      color: 'hsla(0,0%,100%,.54)',
+      color: 'hsla(0,0%,100%,.244)',
       transform: 'scaleY(-1)',
       lineHeight: '.85em',
       background: 'linear-gradient(0deg,hsla(0,0%,100%,.721),transparent 50%)',
@@ -66,7 +71,7 @@ const useStyles = makeStyles(theme => ({
       '-webkit-background-clip': 'text',
       filter: 'blur(1.5px)',
       [theme.breakpoints.up(600)]: {
-        color: 'hsla(0,0%,100%,.34)',
+        color: 'hsla(0,0%,100%,.144)',
       },
       [theme.breakpoints.up(960)]: {
         color: 'hsla(0,0%,100%,.034)',
@@ -78,13 +83,20 @@ const Hero = () => {
   const classes = useStyles();
 
   return (
-    <Parallax blur={1} bgImage={heroImage} bgImageAlt="tech" strength={300} bgImageStyle={{ top: '-130px' }}>
+    <Parallax
+      blur={1}
+      bgImage={heroImage}
+      bgImageAlt="tech"
+      strength={300}
+      bgImageStyle={{ top: '-130px' }}
+      className={classes.paralaxRoot}
+    >
       <section className={classes.root}>
-        <Container maxWidth='lg' >
+        <Container maxWidth='lg' className='fadeIn'>
           <Grid container spacing={3} >
             <Grid item lg={8}>
               <div className={classes.welcomeIntro}>
-                Hello there! I am Andrej Forgač, a front-end developer.
+                One stop for awesome front-end solutions.
               </div>
               <div className={classes.welcomeTitle} data-text='WELCOME TO THE ANDREJGROUND'>
                 Welcome to the <span className='cyan'>Andrej</span>Ground
@@ -99,6 +111,7 @@ const Hero = () => {
                   style={{ marginBottom: '20px', maxWidth: '500px' }}
                   component={Link}
                   to='/portfolio'
+                  endIcon={<ArrowRightAltIcon />}
                 >
                   PROJECTS
                 </Button>
@@ -109,8 +122,9 @@ const Hero = () => {
                   style={{ maxWidth: '500px' }}
                   component={Link}
                   to='/contact'
+                  endIcon={<ArrowRightAltIcon />}
                 >
-                  CONTACT
+                  Let's build
                 </Button>
               </Box>
             </Grid>

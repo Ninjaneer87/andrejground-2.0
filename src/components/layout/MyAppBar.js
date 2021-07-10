@@ -1,44 +1,50 @@
+import React from 'react';
 import { AppBar, makeStyles, useMediaQuery, useTheme } from "@material-ui/core";
-import { cyan } from "@material-ui/core/colors";
 import Logo from "../UI/Logo";
 import { useInView } from "react-intersection-observer";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { Link, useLocation } from "react-router-dom";
-import IconButton from '@material-ui/core/IconButton';
+import Brightness2Icon from '@material-ui/icons/Brightness2';
+import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import MenuIcon from '@material-ui/icons/Menu';
+import IconButton from '@material-ui/core/IconButton';
 import NavContext, { menuItems } from "../../context/navContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import { grey } from "@material-ui/core/colors";
+import ThemeContext from "../../context/themeContext";
 
 const useStyles = makeStyles(theme => ({
   appBar: isScrolled => {
     const styles = {
-      transition: 'all 250ms ease-in-out',
+      transition: `all ${theme.transitions.duration.short}ms ease-in-out`,
       height: 90,
       flexFlow: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      backgroundColor: 'transparent',
+      background: 'transparent',
       borderBottom: `1px solid transparent`,
       left: 0,
       right: 0,
       width: '100vw',
       zIndex: 5,
       boxSizing: 'border-box',
+      boxShadow: `0px 0px 20px rgba(0, 0, 0, 0.38)`,
       [theme.breakpoints.up(1400)]: {
         paddingRight: theme.spacing(10)
       }
     }
     const scrolled = {
-      backgroundColor: theme.palette.custom.darkBlue,
+      color: theme.palette.custom.textColor,
       height: 60,
-      borderBottom: `1px solid ${cyan[900]}`
+      borderBottom: `1px solid ${theme.palette.custom.appbarBorderColor}`,
+      background: grey[900],
     }
     return isScrolled ? { ...styles, ...scrolled } : styles;
   },
   logo: {
-    transition: 'transform 250ms ease-in-out',
+    transition: `all ${theme.transitions.duration.short}ms ease-in-out`,
     transform: isScrolled => isScrolled ? 'translateX(30%)' : 'translateX(60%)',
     width: 'fit-content'
   },
@@ -51,30 +57,52 @@ const useStyles = makeStyles(theme => ({
       marginRight: theme.spacing(5),
     },
   },
-  listItem: {
-    width: 'fit-content',
-    marginLeft: theme.spacing(5),
-    marginRight: theme.spacing(5),
-    transition: 'color 250ms ease-in-out',
-    '&:hover': {
-      color: theme.palette.custom.cyan
+  listItem: isScrolled => {
+    const styles = {
+      width: 'fit-content',
+      marginLeft: theme.spacing(5),
+      marginRight: theme.spacing(5),
+      transition: `color ${theme.transitions.duration.short}ms ease-in-out`,
+      color: '#fff',
+      '&:hover': {
+        color: theme.palette.custom.accent,
+        backgroundColor: 'unset'
+      }
     }
+    const scrolled = {
+      // color: theme.palette.custom.textColor,
+    }
+    return isScrolled ? { ...styles, ...scrolled } : styles;
   },
   active: {
-    color: theme.palette.custom.cyan
+    color: `${theme.palette.custom.accent} !important`
+  },
+  navIcon: {
+    color: '#fff',
+    transition: `color ${theme.transitions.duration.short}ms ease-in-out`,
+    '&:hover': {
+      color: theme.palette.custom.accent,
+      // backgroundColor: 'unset'
+    }
   }
 }));
 
 
 const MyAppBar = (props) => {
   const navContext = useContext(NavContext);
+  const themeContext = useContext(ThemeContext);
   const location = useLocation();
-  const { ref: toolbarScrollRef, inView: toolbarInView } = useInView({
+  const { ref: toolbarScrollRef, inView: toolbarInView, entry } = useInView({
     threshold: 1
   });
-  console.log({ toolbarInView });
+  console.log(entry)
 
+  useEffect(() => {
+    if (entry?.isIntersecting)
+      console.log('is intersecting...')
+  }, [entry?.isIntersecting])
   const isScrolled = !toolbarInView;
+
   const classes = useStyles(isScrolled);
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
@@ -99,7 +127,7 @@ const MyAppBar = (props) => {
               aria-label="menu"
               onClick={navContext.toggleExpanded}
             >
-              <MenuIcon fontSize='large' />
+              <MenuIcon fontSize='large' className={classes.navIcon} />
             </IconButton> :
             menuItems.map(item =>
               <ListItem
@@ -112,6 +140,19 @@ const MyAppBar = (props) => {
                 <ListItemText primary={item.text} />
               </ListItem>)
           }
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+            onClick={themeContext.toggleTheme}
+          >
+            {
+              themeContext.themeMode === 'dark' ?
+                <Brightness2Icon className={classes.navIcon} /> :
+                <WbSunnyIcon className={classes.navIcon} />
+            }
+          </IconButton>
         </List>
       </AppBar>
     </div>

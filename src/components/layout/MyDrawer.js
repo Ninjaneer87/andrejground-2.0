@@ -1,23 +1,23 @@
-import { Divider, Drawer, List, ListItem, ListItemText, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
+import { Divider, Drawer, List, ListItem, ListItemText, makeStyles, Typography } from "@material-ui/core";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import NavContext, { menuItems } from "../../context/navContext";
 import Logo from "../UI/Logo";
-import { cyan } from "@material-ui/core/colors";
+import { grey } from "@material-ui/core/colors";
 
 const drawerWidth = 250;
 
 const useStyles = makeStyles(theme => ({
   drawer: {
     width: drawerWidth,
-    backgroundColor: theme.palette.custom.darkBlue,
+    background: grey[900],
     color: '#fff',
   },
   drawerPaper: {
     width: drawerWidth,
-    backgroundColor: theme.palette.custom.darkBlue,
+    background: grey[900],
   },
   listItem: {
     transformOrigin: 'center center',
@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
       content: '""',
       display: 'block',
       width: 2,
-      transition: 'transform 250ms ease',
+      transition: `transform ${theme.transitions.duration.short}ms ease`,
       position: 'absolute',
       top: 0,
       left: 0,
@@ -36,21 +36,23 @@ const useStyles = makeStyles(theme => ({
     }
   },
   active: {
-    color: theme.palette.custom.cyan,
+    color: theme.palette.custom.accent,
     '&::before': {
       transform: 'scaleY(1)',
     }
   },
   title: {
-    padding: theme.spacing(2),
+    padding: 0,
     color: '#fff',
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
     height: 60,
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
+    borderBottom: `1px solid ${theme.palette.custom.appbarBorderColor}`,
   },
   divider: {
-    backgroundColor: cyan[900]
+    backgroundColor: theme.palette.custom.borderColor
   },
   badge: {
     left: '100%',
@@ -103,7 +105,6 @@ const MyDrawer = ({ unseenOrdersCount }) => {
     {list}
   </Drawer>;
 
-  console.log(navContext.isExpanded)
   return (
     <div>
       {drawer}
