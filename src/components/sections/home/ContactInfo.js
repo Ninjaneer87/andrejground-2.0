@@ -22,9 +22,27 @@ const useStyles = makeStyles(theme => ({
     minHeight: '100vh',
     position: 'relative',
     backgroundColor: 'rgba(0, 0, 0, .8)',
+    overflow: 'hidden',
+    position: 'relative',
     [theme.breakpoints.up(600)]: {
       padding: theme.spacing(3),
     },
+    '&::after': {
+      content: '""',
+      backgroundImage: `url('${bgImage}')`,
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'right',
+      backgroundAttachment: 'fixed',
+      transform: 'scale(1.2)',
+      // opacity: .2,
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+      zIndex: -1,
+      // transform: 'scaleX(-1)'
+    }
   },
   gridItem: {
     marginBottom: '1em',
@@ -107,14 +125,13 @@ const ContactInfo = ({setActiveSection, setRefs}) => {
   ];
 
   return (
-    <Parallax
-      blur={1}
-      bgImage={bgImage}
-      bgImageAlt="tech"
-      strength={300}
-      bgImageStyle={{ top: '-130px' }}
-    // className={classes.paralaxRoot}
-    >
+    // <Parallax
+    //   blur={1}
+    //   bgImage={bgImage}
+    //   bgImageAlt="tech"
+    //   strength={300}
+    //   bgImageStyle={{ top: '-130px' }}
+    // >
       <section className={classes.root} ref={scrollRef}>
         <Box maxWidth='90vw' width={450} padding='30px 0' margin='0 auto' className='fadeIn'>
           <Heading text="Contact Info" inverse />
@@ -180,7 +197,7 @@ const ContactInfo = ({setActiveSection, setRefs}) => {
           </Button>
         </Box>
       </section>
-    </Parallax>
+    // </Parallax>
   );
 };
 

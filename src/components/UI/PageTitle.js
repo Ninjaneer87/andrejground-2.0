@@ -11,6 +11,24 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'flex-end',
     minHeight: '30vh',
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    position: 'relative',
+    overflow: 'hidden',
+    '&::after': {
+      content: '""',
+      backgroundImage: `url('${heroImage}')`,
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'right',
+      backgroundAttachment: 'fixed',
+      transform: 'scale(1.3)',
+      // opacity: .2,
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+      zIndex: -1,
+      // transform: 'scaleX(-1)'
+    }
   },
   pageTitle: {
     color: '#fff',
@@ -30,19 +48,19 @@ const useStyles = makeStyles(theme => ({
 const PageTitle = (props) => {
   const classes = useStyles();
   return (
-    <Parallax
-      blur={1}
-      bgImage={heroImage}
-      bgImageAlt="tech"
-      strength={300}
-      bgImageStyle={{ top: '-130px' }}
-    >
+    // <Parallax
+    //   blur={1}
+    //   bgImage={heroImage}
+    //   bgImageAlt="tech"
+    //   strength={300}
+    //   bgImageStyle={{ top: '-130px' }}
+    // >
       <div className={classes.root}>
           <Typography component='h1' variant='h2' className={`${classes.pageTitle} fadeIn`}>
             {props.pageTitle}
           </Typography>
       </div>
-    </Parallax>
+    // </Parallax>
   );
 };
 

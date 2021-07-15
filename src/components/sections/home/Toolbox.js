@@ -18,6 +18,24 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     backgroundColor: 'rgba(0, 0, 0, .8)',
     padding: theme.spacing(3),
+    overflow: 'hidden',
+    position: 'relative',
+    '&::after': {
+      content: '""',
+      backgroundImage: `url('${bgImage}')`,
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'right',
+      backgroundAttachment: 'fixed',
+      transform: 'scale(1.3)',
+      // opacity: .2,
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+      zIndex: -1,
+      // transform: 'scaleX(-1)'
+    }
   },
   gridItem: {
     marginBottom: '1em',
@@ -123,16 +141,16 @@ const Toolbox = ({ setActiveSection, setRefs }) => {
     if (scrollInView)
       setActiveSection('toolbox');
   }, [scrollInView, setActiveSection]);
-  
+
   return (
-    <Parallax
-      blur={1}
-      bgImage={bgImage}
-      bgImageAlt="tech"
-      strength={300}
-      bgImageStyle={{ top: '-130px' }}
-      className={classes.paralaxRoot}
-    >
+    // <Parallax
+    //   blur={1}
+    //   bgImage={bgImage}
+    //   bgImageAlt="tech"
+    //   strength={300}
+    //   bgImageStyle={{ top: '-130px' }}
+    //   className={classes.paralaxRoot}
+    // >
       <section className={classes.root} ref={scrollRef}>
         <Box width='100%' padding='30px 0' className='fadeIn'>
           <Heading text="Toolbox" inverse />
@@ -191,7 +209,7 @@ const Toolbox = ({ setActiveSection, setRefs }) => {
           </Grid>
         </Box>
       </section>
-    </Parallax>
+    // </Parallax>
   );
 };
 

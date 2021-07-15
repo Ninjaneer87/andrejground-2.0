@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
       backgroundImage: `url('${patternImage}')`,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'right',
-      // backgroundAttachment: 'fixed',
+      backgroundAttachment: 'fixed',
       opacity: .2,
       position: 'absolute',
       top: 0,

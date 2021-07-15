@@ -17,6 +17,24 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     minHeight: '100vh',
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    overflow: 'hidden',
+    position: 'relative',
+    '&::after': {
+      content: '""',
+      backgroundImage: `url('${heroImage}')`,
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'right',
+      backgroundAttachment: 'fixed',
+      transform: 'scale(1.3)',
+      // opacity: .2,
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+      zIndex: -1,
+      // transform: 'scaleX(-1)'
+    }
   },
   welcomeIntro: {
     fontSize: '5.2vw',
@@ -97,16 +115,16 @@ const Hero = ({setActiveSection, setRefs}) => {
     if (entry)
       setRefs('home', entry.target)
   }, [entry, setRefs])
-  
+
   return (
-    <Parallax
-      blur={1}
-      bgImage={heroImage}
-      bgImageAlt="tech"
-      strength={300}
-      bgImageStyle={{ top: '-130px' }}
-      className={classes.paralaxRoot}
-    >
+    // <Parallax
+    //   blur={1}
+    //   bgImage={heroImage}
+    //   bgImageAlt="tech"
+    //   strength={300}
+    //   bgImageStyle={{ top: '-130px' }}
+    //   className={classes.paralaxRoot}
+    // >
       <section className={classes.root} ref={scrollRef}>
         <Container maxWidth='lg' className='fadeIn'>
           <Grid container spacing={3} >
@@ -147,7 +165,7 @@ const Hero = ({setActiveSection, setRefs}) => {
           </Grid>
         </Container>
       </section>
-    </Parallax>
+    // </Parallax>
   );
 };
 
