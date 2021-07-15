@@ -19,22 +19,24 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
     overflow: 'hidden',
     position: 'relative',
+    zIndex: 1,
+  },
+  bgOverlay: {
+    overflow: 'hidden',
+    position: 'relative',
     '&::after': {
       content: '""',
+      transform: 'scale(1.2)',
       backgroundImage: `url('${heroImage}')`,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
       backgroundAttachment: 'fixed',
-      transform: 'scale(1.1)',
-      // opacity: .2,
       position: 'absolute',
       top: 0,
       left: 0,
       bottom: 0,
       right: 0,
-      zIndex: -1,
-      // transform: 'scaleX(-1)'
-    }
+    },
   },
   welcomeIntro: {
     fontSize: '5.2vw',
@@ -99,7 +101,7 @@ const useStyles = makeStyles(theme => ({
     }
   }
 }));
-const Hero = ({setActiveSection, setRefs}) => {
+const Hero = ({ setActiveSection, setRefs }) => {
   const classes = useStyles();
 
   const { ref: scrollRef, inView: scrollInView, entry } = useInView({
@@ -110,21 +112,14 @@ const Hero = ({setActiveSection, setRefs}) => {
     if (scrollInView)
       setActiveSection('home');
   }, [scrollInView, setActiveSection])
-  
+
   useEffect(() => {
     if (entry)
       setRefs('home', entry.target)
   }, [entry, setRefs])
 
   return (
-    // <Parallax
-    //   blur={1}
-    //   bgImage={heroImage}
-    //   bgImageAlt="tech"
-    //   strength={300}
-    //   bgImageStyle={{ top: '-130px' }}
-    //   className={classes.paralaxRoot}
-    // >
+    <div className={classes.bgOverlay}>
       <section className={classes.root} ref={scrollRef}>
         <Container maxWidth='lg' className='fadeIn'>
           <Grid container spacing={3} >
@@ -164,8 +159,7 @@ const Hero = ({setActiveSection, setRefs}) => {
             </Grid>
           </Grid>
         </Container>
-      </section>
-    // </Parallax>
+      </section></div>
   );
 };
 

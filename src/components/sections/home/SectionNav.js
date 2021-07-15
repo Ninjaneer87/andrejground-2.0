@@ -19,6 +19,7 @@ const useStyles = makeStyles(theme => ({
       alignItems: 'center',
       borderRadius: '6px 0 0 6px',
       boxShadow: `0px 0px 10px rgba(0, 0, 0, 0.38)`,
+      zIndex: 1,
       '&::after': {
         content: '""',
         position: 'absolute',

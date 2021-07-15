@@ -19,22 +19,24 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: 'rgba(0, 0, 0, .8)',
     padding: theme.spacing(3),
     overflow: 'hidden',
+    zIndex: 1,
+  },
+  bgOverlay: {
+    overflow: 'hidden',
+    position: 'relative',
     '&::after': {
       content: '""',
+      transform: 'scale(1.2)',
       backgroundImage: `url('${bgImage}')`,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
       backgroundAttachment: 'fixed',
-      transform: 'scale(1.1)',
-      // opacity: .2,
       position: 'absolute',
       top: 0,
       left: 0,
       bottom: 0,
       right: 0,
-      zIndex: -1,
-      // transform: 'scaleX(-1)'
-    }
+    },
   },
   gridItem: {
     marginBottom: '1em',
@@ -142,14 +144,7 @@ const Toolbox = ({ setActiveSection, setRefs }) => {
   }, [scrollInView, setActiveSection]);
 
   return (
-    // <Parallax
-    //   blur={1}
-    //   bgImage={bgImage}
-    //   bgImageAlt="tech"
-    //   strength={300}
-    //   bgImageStyle={{ top: '-130px' }}
-    //   className={classes.paralaxRoot}
-    // >
+    <div className={classes.bgOverlay}>
       <section className={classes.root} ref={scrollRef}>
         <Box width='100%' padding='30px 0' className='fadeIn'>
           <Heading text="Toolbox" inverse />
@@ -208,7 +203,7 @@ const Toolbox = ({ setActiveSection, setRefs }) => {
           </Grid>
         </Box>
       </section>
-    // </Parallax>
+    </div>
   );
 };
 

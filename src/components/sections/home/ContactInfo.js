@@ -23,25 +23,27 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     backgroundColor: 'rgba(0, 0, 0, .8)',
     overflow: 'hidden',
+    zIndex: 1,
     [theme.breakpoints.up(600)]: {
       padding: theme.spacing(3),
     },
+  },
+  bgOverlay: {
+    overflow: 'hidden',
+    position: 'relative',
     '&::after': {
       content: '""',
+      transform: 'scale(1.2)',
       backgroundImage: `url('${bgImage}')`,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
       backgroundAttachment: 'fixed',
-      transform: 'scale(1.1)',
-      // opacity: .2,
       position: 'absolute',
       top: 0,
       left: 0,
       bottom: 0,
       right: 0,
-      zIndex: -1,
-      // transform: 'scaleX(-1)'
-    }
+    },
   },
   gridItem: {
     marginBottom: '1em',
@@ -91,7 +93,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ContactInfo = ({setActiveSection, setRefs}) => {
+const ContactInfo = ({ setActiveSection, setRefs }) => {
   const classes = useStyles();
 
   const { ref: scrollRef, inView: scrollInView, entry } = useInView({
@@ -102,7 +104,7 @@ const ContactInfo = ({setActiveSection, setRefs}) => {
     if (scrollInView)
       setActiveSection('contact');
   }, [scrollInView, setActiveSection])
-  
+
   useEffect(() => {
     if (entry)
       setRefs('contact', entry.target)
@@ -124,13 +126,7 @@ const ContactInfo = ({setActiveSection, setRefs}) => {
   ];
 
   return (
-    // <Parallax
-    //   blur={1}
-    //   bgImage={bgImage}
-    //   bgImageAlt="tech"
-    //   strength={300}
-    //   bgImageStyle={{ top: '-130px' }}
-    // >
+    <div className={classes.bgOverlay}>
       <section className={classes.root} ref={scrollRef}>
         <Box maxWidth='90vw' width={450} padding='30px 0' margin='0 auto' className='fadeIn'>
           <Heading text="Contact Info" inverse />
@@ -196,7 +192,7 @@ const ContactInfo = ({setActiveSection, setRefs}) => {
           </Button>
         </Box>
       </section>
-    // </Parallax>
+    </div>
   );
 };
 

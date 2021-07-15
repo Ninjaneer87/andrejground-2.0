@@ -22,21 +22,23 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     boxShadow: `inset 0px 0px 20px ${theme.palette.custom.boxShadowColor}`,
     padding: theme.spacing(3),
+  },
+  bgOverlay: {
+    overflow: 'hidden',
+    position: 'relative',
     '&::after': {
       content: '""',
       backgroundImage: `url('${patternImage}')`,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'right',
-      // backgroundAttachment: 'fixed',
       opacity: .2,
       position: 'absolute',
       top: 0,
       left: 0,
       bottom: 0,
       right: 0,
-      zIndex: -1,
       transform: 'scaleX(-1)'
-    }
+    },
   },
   gridItem: {
     marginBottom: '3em',
@@ -125,7 +127,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Projects = ({setActiveSection, setRefs}) => {
+const Projects = ({ setActiveSection, setRefs }) => {
   const classes = useStyles();
   const themeContext = useContext(ThemeContext);
 
@@ -137,77 +139,79 @@ const Projects = ({setActiveSection, setRefs}) => {
     if (scrollInView)
       setActiveSection('projects');
   }, [scrollInView, setActiveSection])
-  
+
   useEffect(() => {
     if (entry)
       setRefs('projects', entry.target)
   }, [entry, setRefs])
 
   return (
-    <section className={classes.root} ref={scrollRef}>
-      <Box width='100%' padding='30px 0' className='fadeIn'>
-        <Heading text="Projects" />
-        <Grid container spacing={5} justify='flex-end'>
-          <Grid item xs={12} md={6} className={classes.contentHolder}>
-            <div className={classes.content}>
-              <Typography component='h3' variant='h5' className={classes.subtitle}>
-                COINLAND
-              </Typography>
-              <Typography className={classes.text}>
-                This first practice project was intended to connect client side app to an api. All the data comes from <a target="_blank" rel="noopener noreferrer" href='https://coinmarketcap.com/' className='cyan'>coinmarketcap.com</a>.
-                <br />
-                No frameworks, vanilla JavaScript, CSS & HTML.
-              </Typography>
-              <ButtonGroup
-                aria-label="outlined primary button group"
-                fullWidth
-              >
+    <div className={classes.bgOverlay}>
+      <section className={classes.root} ref={scrollRef}>
+        <Box width='100%' padding='30px 0' className='fadeIn'>
+          <Heading text="Projects" />
+          <Grid container spacing={5} justify='flex-end'>
+            <Grid item xs={12} md={6} className={classes.contentHolder}>
+              <div className={classes.content}>
+                <Typography component='h3' variant='h5' className={classes.subtitle}>
+                  COINLAND
+                </Typography>
+                <Typography className={classes.text}>
+                  This first practice project was intended to connect client side app to an api. All the data comes from <a target="_blank" rel="noopener noreferrer" href='https://coinmarketcap.com/' className='cyan'>coinmarketcap.com</a>.
+                  <br />
+                  No frameworks, vanilla JavaScript, CSS & HTML.
+                </Typography>
+                <ButtonGroup
+                  aria-label="outlined primary button group"
+                  fullWidth
+                >
+                  <Button
+                    variant='text'
+                    component='a'
+                    target='_blank'
+                    rel="noopener noreferrer"
+                    href='https://ninjaneer87.github.io/coinland/'
+                    endIcon={<LinkIcon />}
+                    color={`${themeContext.themeMode === 'dark' ? 'secondary' : 'primary'}`}
+                  >
+                    Live site
+                  </Button>
+                  <Button
+                    variant='text'
+                    component='a'
+                    target='_blank'
+                    rel="noopener noreferrer"
+                    href='https://github.com/Ninjaneer87/coinland/'
+                    endIcon={<CodeIcon />}
+                    color={`${themeContext.themeMode === 'dark' ? 'secondary' : 'primary'}`}
+                  >
+                    Code
+                  </Button>
+                </ButtonGroup>
+
+                <Divider classes={{ root: classes.divider }} />
+
                 <Button
                   variant='text'
-                  component='a'
-                  target='_blank'
-                  rel="noopener noreferrer"
-                  href='https://ninjaneer87.github.io/coinland/'
-                  endIcon={<LinkIcon />}
+                  fullWidth
+                  size="large"
                   color={`${themeContext.themeMode === 'dark' ? 'secondary' : 'primary'}`}
+                  endIcon={<ArrowRightAltIcon />}
+                  component={Link}
+                  to='/portfolio'
                 >
-                  Live site
+                  More projects
                 </Button>
-                <Button
-                  variant='text'
-                  component='a'
-                  target='_blank'
-                  rel="noopener noreferrer"
-                  href='https://github.com/Ninjaneer87/coinland/'
-                  endIcon={<CodeIcon />}
-                  color={`${themeContext.themeMode === 'dark' ? 'secondary' : 'primary'}`}
-                >
-                  Code
-                </Button>
-              </ButtonGroup>
-
-              <Divider classes={{ root: classes.divider }} />
-
-              <Button
-                variant='text'
-                fullWidth
-                size="large"
-                color={`${themeContext.themeMode === 'dark' ? 'secondary' : 'primary'}`}
-                endIcon={<ArrowRightAltIcon />}
-                component={Link}
-                to='/portfolio'
-              >
-                More projects
-              </Button>
-            </div>
+              </div>
+            </Grid>
+            <Grid item xs={12} md={6} >
+              <div className={classes.image} />
+            </Grid>
           </Grid>
-          <Grid item xs={12} md={6} >
-            <div className={classes.image} />
-          </Grid>
-        </Grid>
-      </Box>
+        </Box>
 
-    </section>
+      </section>
+    </div>
   );
 };
 

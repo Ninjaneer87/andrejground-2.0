@@ -30,7 +30,6 @@ const useStyles = makeStyles(theme => ({
       width: '100vw',
       zIndex: 5,
       boxSizing: 'border-box',
-      boxShadow: `0px 0px 20px rgba(0, 0, 0, 0.38)`,
       [theme.breakpoints.up(1400)]: {
         paddingRight: theme.spacing(10)
       }
@@ -40,6 +39,7 @@ const useStyles = makeStyles(theme => ({
       height: 60,
       borderBottom: `1px solid ${theme.palette.custom.appbarBorderColor}`,
       background: grey[900],
+      boxShadow: `0px 0px 20px rgba(0, 0, 0, 0.38)`,
     }
     return isScrolled ? { ...styles, ...scrolled } : styles;
   },
