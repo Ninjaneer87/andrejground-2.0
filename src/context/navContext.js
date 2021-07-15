@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { createContext, useState } from "react";
 
 const NavContext = createContext({
@@ -33,12 +33,12 @@ export const menuItems = [
 export const NavContextProvider = (props) => {
   const [expanded, setExpanded] = useState(false);
 
-  const toggleExpandedHandler = () => {
+  const toggleExpandedHandler = useCallback(() => {
     setExpanded(prevExpanded => !prevExpanded)
-  }
-  const setExpandedHandler = exp => {
+  }, [])
+  const setExpandedHandler = useCallback(exp => {
     setExpanded(exp)
-  }
+  }, [])
 
   const context = {
     isExpanded: expanded,

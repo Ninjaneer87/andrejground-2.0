@@ -46,4 +46,4 @@ const PageTitle = (props) => {
   );
 };
 
-export default PageTitle;
+export default React.memo(PageTitle);

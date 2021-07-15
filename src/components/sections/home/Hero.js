@@ -97,7 +97,7 @@ const Hero = ({setActiveSection, setRefs}) => {
     if (entry)
       setRefs('home', entry.target)
   }, [entry, setRefs])
-
+  
   return (
     <Parallax
       blur={1}
@@ -151,4 +151,4 @@ const Hero = ({setActiveSection, setRefs}) => {
   );
 };
 
-export default Hero;
+export default React.memo(Hero);

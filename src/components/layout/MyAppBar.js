@@ -101,6 +101,7 @@ const MyAppBar = (props) => {
   const classes = useStyles({isScrolled});
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
+
   return (
     <div>
       <div ref={toolbarScrollRef}>
@@ -154,4 +155,4 @@ const MyAppBar = (props) => {
   );
 };
 
-export default MyAppBar;
+export default React.memo(MyAppBar);

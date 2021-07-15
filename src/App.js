@@ -17,7 +17,6 @@ function App() {
     <ThemeProvider theme={themeContext.themeMode === 'dark' ? darkTheme : lightTheme}>
       <Router>
         <Layout>
-          {/* <Paper> */}
             <Switch>
               <Route exact path="/">
                 <Home />
@@ -32,7 +31,6 @@ function App() {
                 <Contact />
               </Route>
             </Switch>
-          {/* </Paper> */}
         </Layout>
       </Router>
     </ThemeProvider>

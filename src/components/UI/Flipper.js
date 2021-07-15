@@ -20,4 +20,4 @@ const Flipper = (props) => {
   );
 };
 
-export default Flipper;
+export default React.memo(Flipper);

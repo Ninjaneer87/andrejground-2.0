@@ -50,7 +50,7 @@ const initialBox = {
   top: 0,
   height: 0,
 }
-const SectionNav = React.memo(({ sections, activeSection, activateSection }) => {
+const SectionNav = ({ sections, activeSection, activateSection }) => {
   const activeRef = useRef(null);
   const [box, setBox] = useState(initialBox);
   const themeMode = useContext(ThemeContext).themeMode;
@@ -89,7 +89,6 @@ const SectionNav = React.memo(({ sections, activeSection, activateSection }) => 
   //   setBoxToActiveRef();
   // }
 
-
   return ReactDom.createPortal(
     <div className={`${classes.root} fadeIn`} style={{
       '--width': Math.round(box.width) - 4 + 'px',
@@ -112,6 +111,6 @@ const SectionNav = React.memo(({ sections, activeSection, activateSection }) => 
     </div>,
     document.getElementById('portal')
   );
-});
+};
 
-export default SectionNav;
+export default React.memo(SectionNav);

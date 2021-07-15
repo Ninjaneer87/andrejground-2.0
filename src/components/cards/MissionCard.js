@@ -59,4 +59,4 @@ const MissionCard = (props) => {
   );
 };
 
-export default MissionCard;
+export default React.memo(MissionCard);

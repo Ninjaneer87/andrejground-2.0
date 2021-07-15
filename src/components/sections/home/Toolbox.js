@@ -122,8 +122,8 @@ const Toolbox = ({ setActiveSection, setRefs }) => {
   useEffect(() => {
     if (scrollInView)
       setActiveSection('toolbox');
-  }, [scrollInView, setActiveSection])
-
+  }, [scrollInView, setActiveSection]);
+  
   return (
     <Parallax
       blur={1}
@@ -195,4 +195,4 @@ const Toolbox = ({ setActiveSection, setRefs }) => {
   );
 };
 
-export default Toolbox;
+export default React.memo(Toolbox);

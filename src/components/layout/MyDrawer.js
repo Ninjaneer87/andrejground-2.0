@@ -60,7 +60,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const MyDrawer = ({ unseenOrdersCount }) => {
+const MyDrawer = () => {
   const classes = useStyles();
   const location = useLocation();
 
@@ -113,4 +113,4 @@ const MyDrawer = ({ unseenOrdersCount }) => {
 };
 
 
-export default MyDrawer;
+export default React.memo(MyDrawer);

@@ -105,7 +105,6 @@ const ContactInfo = ({setActiveSection, setRefs}) => {
       icon: <GitHubIcon className={classes.socialIcon} />
     },
   ];
-  
 
   return (
     <Parallax
@@ -185,4 +184,4 @@ const ContactInfo = ({setActiveSection, setRefs}) => {
   );
 };
 
-export default ContactInfo;
+export default React.memo(ContactInfo);

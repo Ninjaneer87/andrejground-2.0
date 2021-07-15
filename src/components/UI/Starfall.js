@@ -98,4 +98,4 @@ const Starfall = () => {
     </div>
   );
 };
-export default Starfall;
+export default React.memo(Starfall);

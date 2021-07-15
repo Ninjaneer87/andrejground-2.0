@@ -32,4 +32,4 @@ const Heading = (props) => {
   );
 };
 
-export default Heading;
+export default React.memo(Heading);
