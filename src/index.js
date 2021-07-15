@@ -11,7 +11,7 @@ ReactDOM.render(
   <React.StrictMode>
     <ThemeContextProvider>
       <NavContextProvider>
-        <BrowserRouter>
+        <BrowserRouter >
           <App />
         </BrowserRouter>
       </NavContextProvider>
