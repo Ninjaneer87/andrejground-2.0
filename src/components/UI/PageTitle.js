@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
       content: '""',
       backgroundImage: `url('${heroImage}')`,
       backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'right',
+      backgroundPosition: 'center',
       backgroundAttachment: 'fixed',
       transform: 'scale(1.3)',
       // opacity: .2,

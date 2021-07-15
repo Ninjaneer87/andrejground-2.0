@@ -85,7 +85,7 @@ const Starfall = () => {
   return (
     <div className={classes.starfall}>
       <div className={classes.lines}>
-        {stars.map(star =>
+        {/* {stars.map(star =>
           <div
             key={star.leftMargin}
             className={classes.line}
@@ -93,7 +93,7 @@ const Starfall = () => {
               marginLeft: star.leftMargin,
               '--delay': star.animationDelay
             }}
-          />)}
+          />)} */}
       </div>
     </div>
   );
