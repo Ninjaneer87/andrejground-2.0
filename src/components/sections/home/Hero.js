@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     alignItems: 'center',
     minHeight: '100vh',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
     overflow: 'hidden',
     position: 'relative',
     zIndex: 1,
