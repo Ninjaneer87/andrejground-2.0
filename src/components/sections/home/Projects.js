@@ -10,6 +10,8 @@ import LinkIcon from '@material-ui/icons/Link';
 import CodeIcon from '@material-ui/icons/Code';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import ThemeContext from '../../../context/themeContext';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -123,12 +125,26 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Projects = () => {
+const Projects = ({setActiveSection, setRefs}) => {
   const classes = useStyles();
   const themeContext = useContext(ThemeContext);
 
+  const { ref: scrollRef, inView: scrollInView, entry } = useInView({
+    rootMargin: '-50%'
+  });
+
+  useEffect(() => {
+    if (scrollInView)
+      setActiveSection('projects');
+  }, [scrollInView, setActiveSection])
+  
+  useEffect(() => {
+    if (entry)
+      setRefs('projects', entry.target)
+  }, [entry, setRefs])
+
   return (
-    <section className={classes.root}>
+    <section className={classes.root} ref={scrollRef}>
       <Box width='100%' padding='30px 0' className='fadeIn'>
         <Heading text="Projects" />
         <Grid container spacing={5} justify='flex-end'>

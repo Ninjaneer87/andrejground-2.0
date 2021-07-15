@@ -1,8 +1,11 @@
 
 import { unstable_createMuiStrictModeTheme as createMuiTheme } from '@material-ui/core';
 import { blueGrey, cyan, grey } from '@material-ui/core/colors';
+import { responsiveFontSizes } from '@material-ui/core/styles';
 
-export const lightTheme = createMuiTheme({
+
+
+export const lightTheme = responsiveFontSizes(createMuiTheme({
   palette: {
     primary: blueGrey,
     secondary: cyan,
@@ -26,8 +29,9 @@ export const lightTheme = createMuiTheme({
     fontWeightMedium: 600,
     fontWeightBold: 700,
   }
-});
-export const darkTheme = createMuiTheme({
+}));
+
+export const darkTheme = responsiveFontSizes(createMuiTheme({
   palette: {
     primary: blueGrey,
     secondary: cyan,
@@ -52,4 +56,4 @@ export const darkTheme = createMuiTheme({
     fontWeightMedium: 600,
     fontWeightBold: 700,
   }
-});
+}));

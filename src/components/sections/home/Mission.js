@@ -7,6 +7,8 @@ import uiUxImage from '../../../assets/img/ui-ux.svg';
 import goalImage from '../../../assets/img/final-goal.svg';
 import patternImage from '../../../assets/img/pattern1.png';
 import { Link } from "react-router-dom";
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -48,11 +50,25 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Mission = () => {
+const Mission = ({setActiveSection, setRefs}) => {
   const classes = useStyles();
 
+  const { ref: scrollRef, inView: scrollInView, entry } = useInView({
+    rootMargin: '-50%'
+  });
+
+  useEffect(() => {
+    if (scrollInView)
+      setActiveSection('mission');
+  }, [scrollInView, setActiveSection])
+
+  useEffect(() => {
+    if (entry)
+      setRefs('mission', entry.target)
+  }, [entry, setRefs])
+
   return (
-    <section className={classes.root} >
+    <section className={classes.root} ref={scrollRef}>
       <Box width='100%' padding='30px 0' className='fadeIn'>
         <Heading text='Mission' />
         <Grid container spacing={5} justify='center'>

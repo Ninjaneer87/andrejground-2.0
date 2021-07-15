@@ -4,6 +4,8 @@ import { Parallax } from 'react-parallax';
 import { Link } from 'react-router-dom';
 import heroImage from '../../../assets/img/bg.jpg';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
 
 const useStyles = makeStyles(theme => ({
   paralaxRoot: {
@@ -79,8 +81,22 @@ const useStyles = makeStyles(theme => ({
     }
   }
 }));
-const Hero = () => {
+const Hero = ({setActiveSection, setRefs}) => {
   const classes = useStyles();
+
+  const { ref: scrollRef, inView: scrollInView, entry } = useInView({
+    rootMargin: '-50%'
+  });
+
+  useEffect(() => {
+    if (scrollInView)
+      setActiveSection('home');
+  }, [scrollInView, setActiveSection])
+  
+  useEffect(() => {
+    if (entry)
+      setRefs('home', entry.target)
+  }, [entry, setRefs])
 
   return (
     <Parallax
@@ -91,7 +107,7 @@ const Hero = () => {
       bgImageStyle={{ top: '-130px' }}
       className={classes.paralaxRoot}
     >
-      <section className={classes.root}>
+      <section className={classes.root} ref={scrollRef}>
         <Container maxWidth='lg' className='fadeIn'>
           <Grid container spacing={3} >
             <Grid item lg={8}>

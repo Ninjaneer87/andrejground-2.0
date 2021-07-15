@@ -7,7 +7,7 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     margin: '50px 0 80px 0',
     [theme.breakpoints.down(768)]: {
-      fontSize: '35px',
+      // fontSize: '35px',
     },
     '&::after': {
       content: '""',

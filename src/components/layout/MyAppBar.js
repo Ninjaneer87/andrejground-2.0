@@ -11,12 +11,12 @@ import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
 import NavContext, { menuItems } from "../../context/navContext";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { grey } from "@material-ui/core/colors";
 import ThemeContext from "../../context/themeContext";
 
 const useStyles = makeStyles(theme => ({
-  appBar: isScrolled => {
+  appBar: ({isScrolled}) => {
     const styles = {
       transition: `all ${theme.transitions.duration.short}ms ease-in-out`,
       height: 90,
@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
   },
   logo: {
     transition: `all ${theme.transitions.duration.short}ms ease-in-out`,
-    transform: isScrolled => isScrolled ? 'translateX(30%)' : 'translateX(60%)',
+    transform: ({isScrolled}) => isScrolled ? 'translateX(30%)' : 'translateX(60%)',
     width: 'fit-content'
   },
   navbar: {
@@ -57,7 +57,7 @@ const useStyles = makeStyles(theme => ({
       marginRight: theme.spacing(5),
     },
   },
-  listItem: isScrolled => {
+  listItem: ({isScrolled}) => {
     const styles = {
       width: 'fit-content',
       marginLeft: theme.spacing(5),
@@ -92,18 +92,13 @@ const MyAppBar = (props) => {
   const navContext = useContext(NavContext);
   const themeContext = useContext(ThemeContext);
   const location = useLocation();
-  const { ref: toolbarScrollRef, inView: toolbarInView, entry } = useInView({
+
+  const { ref: toolbarScrollRef, inView: toolbarInView } = useInView({
     threshold: 1
   });
-  console.log(entry)
-
-  useEffect(() => {
-    if (entry?.isIntersecting)
-      console.log('is intersecting...')
-  }, [entry?.isIntersecting])
   const isScrolled = !toolbarInView;
 
-  const classes = useStyles(isScrolled);
+  const classes = useStyles({isScrolled});
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
   return (

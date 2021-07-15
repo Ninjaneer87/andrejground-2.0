@@ -2,11 +2,14 @@ import React from 'react';
 import { makeStyles } from "@material-ui/core";
 import MyAppBar from './MyAppBar';
 import MyDrawer from './MyDrawer';
+import Footer from './Footer';
 
 
 const useStyles = makeStyles(theme => ({
   root: {
-    // display: 'flex'
+    display: 'flex',
+    flexFlow: 'column',
+    minHeight: '100vh'
   },
   page: {
     // paddingBottom: theme.spacing(3),
@@ -23,6 +26,7 @@ const Layout = (props) => {
       <div className={classes.page}>
         {props.children}
       </div>
+      <Footer />
     </div>
   );
 };

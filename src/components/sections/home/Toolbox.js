@@ -6,6 +6,8 @@ import { Parallax } from 'react-parallax';
 import Heading from "../../UI/Heading";
 import { List, ListItem, ListItemIcon } from '@material-ui/core';
 import { ListItemText } from '@material-ui/core';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -104,8 +106,23 @@ const moreTools = [
   'Axios',
 ]
 
-const Toolbox = () => {
+const Toolbox = ({ setActiveSection, setRefs }) => {
   const classes = useStyles();
+
+  const { ref: scrollRef, inView: scrollInView, entry } = useInView({
+    rootMargin: '-50%'
+  });
+
+  useEffect(() => {
+    if (entry)
+      setRefs('toolbox', entry.target)
+  }, [entry, setRefs])
+
+
+  useEffect(() => {
+    if (scrollInView)
+      setActiveSection('toolbox');
+  }, [scrollInView, setActiveSection])
 
   return (
     <Parallax
@@ -116,7 +133,7 @@ const Toolbox = () => {
       bgImageStyle={{ top: '-130px' }}
       className={classes.paralaxRoot}
     >
-      <section className={classes.root}>
+      <section className={classes.root} ref={scrollRef}>
         <Box width='100%' padding='30px 0' className='fadeIn'>
           <Heading text="Toolbox" inverse />
           <Grid container justify='center' spacing={5}>
