@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import { Parallax } from 'react-parallax';
+// import { Parallax } from 'react-parallax';
 import heroImage from '../../assets/img/bg.jpg';
 
 const useStyles = makeStyles(theme => ({

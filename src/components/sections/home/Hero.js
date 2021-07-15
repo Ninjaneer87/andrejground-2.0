@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, makeStyles, Container, Grid, Box } from '@material-ui/core';
-import { Parallax } from 'react-parallax';
+// import { Parallax } from 'react-parallax';
 import { Link } from 'react-router-dom';
 import heroImage from '../../../assets/img/bg.jpg';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles, Box, List, ListItem, ListItemIcon, ListItemText, Typography, Divider, Button } from '@material-ui/core';
 import bgImage from '../../../assets/img/bg4.jpg';
-import { Parallax } from 'react-parallax';
+// import { Parallax } from 'react-parallax';
 import Heading from './../../UI/Heading';
 import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
@@ -23,7 +23,6 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     backgroundColor: 'rgba(0, 0, 0, .8)',
     overflow: 'hidden',
-    position: 'relative',
     [theme.breakpoints.up(600)]: {
       padding: theme.spacing(3),
     },

@@ -2,7 +2,7 @@ import React from 'react';
 import bgImage from '../../../assets/img/bg2.jpg';
 import toolboxImage from '../../../assets/img/skills1.png';
 import { Grid, makeStyles, Box } from "@material-ui/core";
-import { Parallax } from 'react-parallax';
+// import { Parallax } from 'react-parallax';
 import Heading from "../../UI/Heading";
 import { List, ListItem, ListItemIcon } from '@material-ui/core';
 import { ListItemText } from '@material-ui/core';
@@ -19,7 +19,6 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: 'rgba(0, 0, 0, .8)',
     padding: theme.spacing(3),
     overflow: 'hidden',
-    position: 'relative',
     '&::after': {
       content: '""',
       backgroundImage: `url('${bgImage}')`,
