@@ -26,16 +26,19 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     '&::after': {
       content: '""',
-      transform: 'scale(1.2)',
       backgroundImage: `url('${bgImage}')`,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
-      backgroundAttachment: 'fixed',
+      backgroundSize: 'cover',
       position: 'absolute',
       top: 0,
       left: 0,
       bottom: 0,
       right: 0,
+      [theme.breakpoints.up(992)]: {
+        transform: 'scale(1.2)',
+        backgroundAttachment: 'fixed',
+      },
     },
   },
   gridItem: {

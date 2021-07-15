@@ -48,36 +48,36 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-// const stars = [
-//   {
-//     animationDelay: '3s',
-//     leftMargin: '-45%'
-//   },
-//   {
-//     animationDelay: '5s',
-//     leftMargin: '-30%'
-//   },
-//   {
-//     animationDelay: '0s',
-//     leftMargin: '-15%'
-//   },
-//   {
-//     animationDelay: '2s',
-//     leftMargin: '0'
-//   },
-//   {
-//     animationDelay: '1s',
-//     leftMargin: '15%'
-//   },
-//   {
-//     animationDelay: '4s',
-//     leftMargin: '30%'
-//   },
-//   {
-//     animationDelay: '6s',
-//     leftMargin: '45%'
-//   },
-// ];
+const stars = [
+  {
+    animationDelay: '3s',
+    leftMargin: '-45%'
+  },
+  {
+    animationDelay: '5s',
+    leftMargin: '-30%'
+  },
+  {
+    animationDelay: '0s',
+    leftMargin: '-15%'
+  },
+  {
+    animationDelay: '2s',
+    leftMargin: '0'
+  },
+  {
+    animationDelay: '1s',
+    leftMargin: '15%'
+  },
+  {
+    animationDelay: '4s',
+    leftMargin: '30%'
+  },
+  {
+    animationDelay: '6s',
+    leftMargin: '45%'
+  },
+];
 
 const Starfall = () => {
   const classes = useStyles();
@@ -85,7 +85,7 @@ const Starfall = () => {
   return (
     <div className={classes.starfall}>
       <div className={classes.lines}>
-        {/* {stars.map(star =>
+        {stars.map(star =>
           <div
             key={star.leftMargin}
             className={classes.line}
@@ -93,7 +93,7 @@ const Starfall = () => {
               marginLeft: star.leftMargin,
               '--delay': star.animationDelay
             }}
-          />)} */}
+          />)}
       </div>
     </div>
   );
