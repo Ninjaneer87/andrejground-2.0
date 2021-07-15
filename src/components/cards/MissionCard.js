@@ -5,8 +5,8 @@ const useStyles = makeStyles(theme => ({
   root: {
     padding: '1rem .5rem',
     borderRadius: '2rem',
-    backgroundColor: 'rgba(0, 0, 0, 0.01)',
-    backdropFilter: 'blur(4px)',
+    backgroundColor: 'rgba(0, 0, 0, 0.02)',
+    // backdropFilter: 'blur(4px)',
     border: `1px solid ${theme.palette.custom.borderColor}`,
     display: 'flex',
     flexDirection: 'column',

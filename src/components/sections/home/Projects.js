@@ -59,7 +59,7 @@ const useStyles = makeStyles(theme => ({
     padding: '2rem 1rem',
     borderRadius: '2rem',
     backgroundColor: 'rgba(0, 0, 0, 0.02)',
-    backdropFilter: 'blur(4px)',
+    // backdropFilter: 'blur(4px)',
     border: `1px solid ${theme.palette.custom.borderColor}`,
     display: 'flex',
     flexDirection: 'column',

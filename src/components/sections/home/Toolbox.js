@@ -69,7 +69,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     justifyContent: 'center',
     filter: `drop-shadow(30px 10px 4px #0000005e)`,
-    animation: 'rotate 24s linear infinite',
+    // animation: 'rotate 24s linear infinite',
   },
   toolboxImage: {
     width: '90vw',
