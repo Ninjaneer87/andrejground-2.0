@@ -6,7 +6,6 @@ const useStyles = makeStyles(theme => ({
     padding: '1rem .5rem',
     borderRadius: '2rem',
     backgroundColor: 'rgba(0, 0, 0, 0.02)',
-    backdropFilter: 'blur(4px)',
     border: `1px solid ${theme.palette.custom.borderColor}`,
     display: 'flex',
     flexDirection: 'column',
@@ -18,6 +17,9 @@ const useStyles = makeStyles(theme => ({
     transition: `all ${theme.transitions.duration.short}ms ease-in-out`,
     [theme.breakpoints.up(600)]: {
       padding: '2rem',
+    },
+    [theme.breakpoints.up(992)]: {
+      backdropFilter: 'blur(4px)',
     },
     '&:hover': {
       border: `1px solid ${theme.palette.custom.accent}`,
