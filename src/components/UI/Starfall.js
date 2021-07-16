@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDom from 'react-dom';
 import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
@@ -10,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     right: 0,
     zIndex: -1,
     background: theme.palette.custom.backgroundColor,
-    transition: `background ${theme.transitions.duration.short}ms ease`,
+    // transition: `background ${theme.transitions.duration.short}ms ease`,
   },
   lines: {
     position: 'absolute',
@@ -18,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     height: '100%',
     margin: 'auto',
-    width: '100vw',
+    width: '100%',
     opacity: 0.5
   },
   line: {
@@ -35,12 +36,15 @@ const useStyles = makeStyles(theme => ({
       position: 'absolute',
       height: '15vh',
       width: '100%',
-      transition: `transform ${theme.transitions.duration.short}ms ease`,
+      // transition: `transform ${theme.transitions.duration.short}ms ease`,
       top: '-50%',
       left: 0,
+      opacity: .4,
       background: `linear-gradient(to bottom, transparent 0%, #00e5ffad 75%, ${theme.palette.custom.textColor} 100%)`,
       animation: 'drop 7s 0s infinite',
-      animationFillMode: 'forwards',
+      '-webkit-animation-fill-mode': 'forwards',
+      'animation-fill-mode': 'forwards',
+      '-webkit-animation-timing-function': 'cubic-bezier(0.4, 0.26, 0, 0.97)',
       animationTimingFunction: 'cubic-bezier(0.4, 0.26, 0, 0.97)',
       animationDelay: 'var(--delay)',
       '-webkit-animation-delay': 'var(--delay)'
@@ -48,54 +52,55 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-// const stars = [
-//   {
-//     animationDelay: '3s',
-//     leftMargin: '-45%'
-//   },
-//   {
-//     animationDelay: '5s',
-//     leftMargin: '-30%'
-//   },
-//   {
-//     animationDelay: '0s',
-//     leftMargin: '-15%'
-//   },
-//   {
-//     animationDelay: '2s',
-//     leftMargin: '0'
-//   },
-//   {
-//     animationDelay: '1s',
-//     leftMargin: '15%'
-//   },
-//   {
-//     animationDelay: '4s',
-//     leftMargin: '30%'
-//   },
-//   {
-//     animationDelay: '6s',
-//     leftMargin: '45%'
-//   },
-// ];
+const stars = [
+  {
+    animationDelay: '3s',
+    translateX: '-45vw'
+  },
+  {
+    animationDelay: '5s',
+    translateX: '-30vw'
+  },
+  {
+    animationDelay: '0s',
+    translateX: '-15vw'
+  },
+  {
+    animationDelay: '2s',
+    translateX: '0'
+  },
+  {
+    animationDelay: '1s',
+    translateX: '15vw'
+  },
+  {
+    animationDelay: '4s',
+    translateX: '30vw'
+  },
+  {
+    animationDelay: '6s',
+    translateX: '45vw'
+  },
+];
 
 const Starfall = () => {
   const classes = useStyles();
 
-  return (
+  return ReactDom.createPortal(
     <div className={classes.starfall}>
-      {/* <div className={classes.lines}>
+      <div className={classes.lines}>
         {stars.map(star =>
           <div
-            key={star.leftMargin}
+            key={star.translateX}
             className={classes.line}
             style={{
-              marginLeft: star.leftMargin,
+              transform: `translateX(${star.translateX})`,
               '--delay': star.animationDelay
             }}
           />)}
-      </div> */}
-    </div>
+      </div>
+    </div>,
+    document.getElementById('portal')
   );
 };
 export default React.memo(Starfall);

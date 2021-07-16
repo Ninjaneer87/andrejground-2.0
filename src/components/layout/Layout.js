@@ -14,12 +14,15 @@ const useStyles = makeStyles(theme => ({
   },
   page: {
     // paddingBottom: theme.spacing(3),
+    '-ms-transform': 'translate3d(0, 0, 0)',
+    '-webkit-transform': 'translate3d(0, 0, 0)',
+    'transform': 'translate3d(0, 0, 0)',
   },
 }));
 
 const Layout = (props) => {
   const classes = useStyles();
-  
+
   return (
     <div className={classes.root}>
       <MyLoader />

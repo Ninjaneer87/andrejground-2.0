@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
       backgroundImage: `url('${patternImage}')`,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'right',
-      opacity: .2,
+      opacity: .35,
       position: 'absolute',
       top: 0,
       left: 0,

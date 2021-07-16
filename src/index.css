@@ -19,7 +19,7 @@ a {
   text-decoration: none;
   color: unset;
 }
-p, div, section{
+p, div, section, ::after, ::before{
   box-sizing: border-box;
 }
 
@@ -84,19 +84,23 @@ div, h1, h2, h3, h4, span, p , button{
 
 @-webkit-keyframes drop {
   0% {
-    top: -50%;
+    /* top: -50%; */
+    transform: translateY(-50vh);
   }
   100% {
-    top: 110%;
+    /* top: 110%; */
+    transform: translateY(160vh);
   }
 }
 
 @keyframes drop {
   0% {
-    top: -50%;
+    /* top: -50%; */
+    transform: translateY(-50vh);
   }
   100% {
-    top: 110%;
+    /* top: 110%; */
+    transform: translateY(160vh);
   }
 }
 

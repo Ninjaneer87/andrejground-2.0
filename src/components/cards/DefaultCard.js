@@ -11,9 +11,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'start',
-    maxWidth: 400,
     margin: '0 auto',
-    height: '100%',
     transition: `all ${theme.transitions.duration.short}ms ease-in-out`,
     zIndex: 1,
     [theme.breakpoints.up(600)]: {

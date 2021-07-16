@@ -19,6 +19,7 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     boxShadow: `inset 0px 0px 20px ${theme.palette.custom.boxShadowColor}`,
     padding: theme.spacing(3),
+    paddingBottom: 100,
     zIndex: 1,
   },
   bgOverlay: {
@@ -30,7 +31,7 @@ const useStyles = makeStyles(theme => ({
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'right',
       // backgroundAttachment: 'fixed',
-      opacity: .2,
+      opacity: .35,
       position: 'absolute',
       top: 0,
       left: 0,
