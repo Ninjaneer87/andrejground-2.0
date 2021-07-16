@@ -17,6 +17,7 @@ export const lightTheme = responsiveFontSizes(createMuiTheme({
       borderColor: 'transparent',
       appbarBorderColor: cyan[900],
       logoBgColor: 'rgba(0, 0, 0, 0.5)',
+      cardBgColor: '#f5f5f5a3',
     },
     action: {
       disabled: '#bdbdbd'
@@ -42,7 +43,8 @@ export const darkTheme = responsiveFontSizes(createMuiTheme({
       boxShadowColor: '#00e5ff44',
       borderColor: cyan[900],
       appbarBorderColor: cyan[900],
-      logoBgColor: 'transparent'
+      logoBgColor: 'transparent',
+      cardBgColor: '#212121bb',
     },
     action: {
       disabled: '#bdbdbd'

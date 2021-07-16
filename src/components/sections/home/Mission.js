@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, makeStyles, Box } from "@material-ui/core";
-import MissionCard from "../../cards/MissionCard";
+import DefaultCard from "../../cards/DefaultCard";
 import Heading from "../../UI/Heading";
 import aboutImage from '../../../assets/img/aboutme.svg';
 import uiUxImage from '../../../assets/img/ui-ux.svg';
@@ -29,6 +29,7 @@ const useStyles = makeStyles(theme => ({
       backgroundImage: `url('${patternImage}')`,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'right',
+      // backgroundAttachment: 'fixed',
       opacity: .2,
       position: 'absolute',
       top: 0,
@@ -49,6 +50,27 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up(1300)]: {
       transform: 'translateY(+100px)'
     },
+  },
+  imageContainer: {
+    height: 150,
+    width: 105,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: '0 auto',
+  },
+  image: {
+    width: '100%',
+    display: 'block',
+    filter: `drop-shadow(0px 0px 4px ${theme.palette.custom.cyan})`,
+    // transform: 'skewY(5deg)',
+  },
+  text: {
+    margin: '1.5rem 0',
+    lineHeight: 2,
+    fontWeight: 400,
+    textAlign: 'center',
+    color: theme.palette.custom.textColor
   }
 }));
 
@@ -76,19 +98,34 @@ const Mission = ({ setActiveSection, setRefs }) => {
           <Heading text='Mission' />
           <Grid container spacing={5} justify='center'>
             <Grid item className={`${classes.gridItem} ${classes.translateMinusXl}`} xs={12} md={6} lg={4}>
-              <MissionCard image={aboutImage}>
-                This is the place where ideas get converted into code. If you are into any of those two,<br /> let's <Link to='/contact' className='cyan'>get in touch</Link> and build.
-              </MissionCard>
+              <DefaultCard maxWidth={400}>
+                <div className={classes.imageContainer}>
+                  <img className={classes.image} src={aboutImage} alt='icon' />
+                </div>
+                <div className={classes.text}>
+                  This is the place where ideas get converted into code. If you are into any of those two,<br /> let's <Link to='/contact' className='cyan'>get in touch</Link> and build.
+                </div>
+              </DefaultCard>
             </Grid>
             <Grid item className={classes.gridItem} xs={12} md={6} lg={4}>
-              <MissionCard image={uiUxImage}>
-                Outstanding UI and UX are a must-have in today's age of short attention span on the web <i>(and in general)</i>. If it's not intuitive - before you know it, your app is a ghost town.
-              </MissionCard>
+              <DefaultCard maxWidth={400}>
+                <div className={classes.imageContainer}>
+                  <img className={classes.image} src={uiUxImage} alt='icon' />
+                </div>
+                <div className={classes.text}>
+                  Outstanding UI and UX are a must-have in today's age of short attention span on the web <i>(and in general)</i>. If it's not intuitive - before you know it, your app is a ghost town.
+                </div>
+              </DefaultCard>
             </Grid>
             <Grid item className={`${classes.gridItem} ${classes.translatePlusXl}`} xs={12} md={6} lg={4}>
-              <MissionCard image={goalImage}>
-                The mission here is to create engaging, user friendly web applications, using the latest technologies, and make sure they achieve the desired effect.
-              </MissionCard>
+              <DefaultCard maxWidth={400}>
+                <div className={classes.imageContainer}>
+                  <img className={classes.image} src={goalImage} alt='icon' />
+                </div>
+                <div className={classes.text}>
+                  The mission here is to create engaging, user friendly web applications, using the latest technologies, and make sure they achieve the desired effect.
+                </div>
+              </DefaultCard>
             </Grid>
           </Grid>
         </Box>

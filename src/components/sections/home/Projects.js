@@ -12,6 +12,7 @@ import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import ThemeContext from '../../../context/themeContext';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
+import DefaultCard from '../../cards/DefaultCard';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -155,7 +156,10 @@ const Projects = ({ setActiveSection, setRefs }) => {
           <Heading text="Projects" />
           <Grid container spacing={5} justify='flex-end'>
             <Grid item xs={12} md={6} className={classes.contentHolder}>
-              <div className={classes.content}>
+              <DefaultCard
+                maxWidth={600}
+                height='fit-content'
+              >
                 <Typography component='h3' variant='h5' className={classes.subtitle}>
                   COINLAND
                 </Typography>
@@ -205,7 +209,7 @@ const Projects = ({ setActiveSection, setRefs }) => {
                 >
                   More projects
                 </Button>
-              </div>
+              </DefaultCard>
             </Grid>
             <Grid item xs={12} md={6} >
               <div className={classes.image} />

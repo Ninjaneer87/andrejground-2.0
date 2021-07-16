@@ -22,6 +22,7 @@ const useStyles = makeStyles(theme => ({
       height: 90,
       flexFlow: 'row',
       justifyContent: 'space-between',
+      color: theme.palette.custom.textColor,
       alignItems: 'center',
       background: 'transparent',
       borderBottom: `1px solid transparent`,

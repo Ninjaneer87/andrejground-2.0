@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import ReactDom from 'react-dom';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, ButtonBase } from '@material-ui/core';
 import ThemeContext from "../../../context/themeContext";
 
 const useStyles = makeStyles(theme => ({
@@ -36,6 +36,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   item: {
+    color: '#fff',
     padding: '12px 6px',
     cursor: 'pointer',
     width: '100%',
@@ -98,7 +99,7 @@ const SectionNav = ({ sections, activeSection, activateSection }) => {
       '--height': Math.round(box.height) - 8 + 'px',
     }}>
       {sections.map(section =>
-        <div
+        <ButtonBase
           ref={section.name === activeSection ? activeRef : null}
           key={section.name}
           onClick={() => activateSection(section.name)}
@@ -107,7 +108,7 @@ const SectionNav = ({ sections, activeSection, activateSection }) => {
         // onMouseLeave={mouseLeaveHandler}
         >
           {section.icon}
-        </div>
+        </ButtonBase>
       )}
     </div>,
     document.getElementById('portal')
