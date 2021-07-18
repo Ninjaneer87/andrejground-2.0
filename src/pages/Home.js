@@ -42,7 +42,7 @@ const Home = () => {
   const [activeSection, setActiveSection] = useState('home');
 
   const activateSection = useCallback((section) => {
-    refs[section].scrollIntoView();
+    refs[section].scrollIntoView({behavior: 'smooth'});
   }, []);
 
   return (

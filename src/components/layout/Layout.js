@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     flexFlow: 'column',
-    minHeight: '100vh'
+    minHeight: '100vh',
   },
   page: {
     // paddingBottom: theme.spacing(3),

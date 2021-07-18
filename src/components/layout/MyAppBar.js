@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Brightness2Icon from '@material-ui/icons/Brightness2';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -130,8 +130,8 @@ const MyAppBar = (props) => {
               <ListItem
                 key={item.id}
                 className={`${location.pathname === item.path ? classes.active : ''} ${classes.listItem}`}
-                button
-                component={Link}
+                // button
+                component={NavLink}
                 to={item.path}
               >
                 <ListItemText primary={item.text} />
