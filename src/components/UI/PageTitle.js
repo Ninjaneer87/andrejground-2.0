@@ -17,9 +17,9 @@ const useStyles = makeStyles(theme => ({
       content: '""',
       backgroundImage: `url('${heroImage}')`,
       backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-      backgroundAttachment: 'fixed',
-      transform: 'scale(1.3)',
+      backgroundPosition: 'left',
+      // backgroundAttachment: 'fixed',
+      // transform: 'scale(1.3)',
       // opacity: .2,
       position: 'absolute',
       top: 0,
@@ -28,6 +28,10 @@ const useStyles = makeStyles(theme => ({
       right: 0,
       zIndex: -1,
       // transform: 'scaleX(-1)'
+      [theme.breakpoints.up(992)]: {
+        transform: 'scale(1.2)',
+        backgroundAttachment: 'fixed',
+      },
     }
   },
   pageTitle: {

@@ -2,7 +2,7 @@ import { makeStyles, Box, Grid, Typography, Divider } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import React, { useContext } from 'react';
-import patternImage from '../../../assets/img/pattern1.png';
+import patternImage from '../../../assets/img/pattern2.png';
 import bgImage from '../../../assets/img/coinland-framed.png';
 import Heading from "../../UI/Heading";
 import { Link } from 'react-router-dom';
@@ -30,8 +30,8 @@ const useStyles = makeStyles(theme => ({
     '&::after': {
       content: '""',
       backgroundImage: `url('${patternImage}')`,
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'right',
+      backgroundPosition: 'center',
+      filter: 'drop-shadow(0px 0px 1px rgba(255, 255, 255, 1))',
       opacity: .35,
       position: 'absolute',
       top: 0,

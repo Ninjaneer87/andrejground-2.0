@@ -5,7 +5,7 @@ import Heading from "../../UI/Heading";
 import aboutImage from '../../../assets/img/aboutme.svg';
 import uiUxImage from '../../../assets/img/ui-ux.svg';
 import goalImage from '../../../assets/img/final-goal.svg';
-import patternImage from '../../../assets/img/pattern1.png';
+import patternImage from '../../../assets/img/pattern2.png';
 import { Link } from "react-router-dom";
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
@@ -28,8 +28,9 @@ const useStyles = makeStyles(theme => ({
     '&::after': {
       content: '""',
       backgroundImage: `url('${patternImage}')`,
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'right',
+      // backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      filter: 'drop-shadow(0px 0px 1px rgba(255, 255, 255, 1))',
       // backgroundAttachment: 'fixed',
       opacity: .35,
       position: 'absolute',
