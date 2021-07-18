@@ -26,6 +26,7 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     margin: '1.5rem 0',
+    width: '100%'
   }
 }))
 const DefaultCard = (props) => {
@@ -34,7 +35,11 @@ const DefaultCard = (props) => {
   return (
     <div
       className={classes.root}
-      style={{ maxWidth: props.maxWidth || '100%', height: props.height || '100%' }}
+      style={{ 
+        maxWidth: props.maxWidth || '100%', 
+        height: props.height || '100%',
+        width: props.width || 'auto',
+      }}
     >
       <div className={classes.content}>
         {props.children}

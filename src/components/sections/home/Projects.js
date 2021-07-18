@@ -58,31 +58,6 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  content: {
-    padding: '2rem 1rem',
-    borderRadius: '2rem',
-    backgroundColor: 'rgba(0, 0, 0, 0.02)',
-    zIndex: 1,
-    border: `1px solid ${theme.palette.custom.borderColor}`,
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'start',
-    justifyContent: 'start',
-    maxWidth: 600,
-    width: 600,
-    margin: '0 auto',
-    minHeight: 300,
-    transition: `all ${theme.transitions.duration.short}ms ease-in-out`,
-    [theme.breakpoints.up(600)]: {
-      padding: '2rem',
-    },
-    [theme.breakpoints.up(992)]: {
-      backdropFilter: 'blur(4px)',
-    },
-    '&:hover': {
-      border: `1px solid ${theme.palette.custom.accent}`,
-    }
-  },
   subtitle: {
     color: theme.palette.custom.textColor,
     fontWeight: 400,

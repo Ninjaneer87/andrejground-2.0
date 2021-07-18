@@ -44,7 +44,7 @@ export const darkTheme = responsiveFontSizes(createMuiTheme({
       borderColor: cyan[900],
       appbarBorderColor: cyan[900],
       logoBgColor: 'transparent',
-      cardBgColor: '#212121bb',
+      cardBgColor: '#212121dd',
     },
     action: {
       disabled: '#bdbdbd'
