@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { makeStyles, Box, Grid } from '@material-ui/core';
-import patternImage1 from '../../../assets/img/pattern1.png';
 import patternImage2 from '../../../assets/img/pattern2.png';
 import coinlandImage from '../../../assets/img/coinland-framed.png';
 import andrejgroundImage from '../../../assets/img/andrejground1-framed.png';
@@ -8,7 +7,6 @@ import infobizImage from '../../../assets/img/infobiz-framed.png';
 import infobizAppImage from '../../../assets/img/infobiz-app-framed.png';
 import Heading from '../../UI/Heading';
 import ProjectItem from './ProjectItem';
-import ThemeContext from '../../../context/themeContext';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,12 +23,12 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     '&::after': {
       content: '""',
-      backgroundImage: ({themeMode}) => themeMode === 'dark' ? `url('${patternImage2}')` : `url('${patternImage2}')`,
+      backgroundImage: `url('${patternImage2}')`,
       // backgroundRepeat: 'repeat',
       backgroundPosition: 'center',
       // backgroundAttachment: 'fixed',
       opacity: .35,
-      filter: 'drop-shadow(0px 0px 1px rgba(255, 255, 255, 1))',
+      filter: 'drop-shadow(0px 0px 1px #fff)',
       position: 'absolute',
       top: 0,
       left: 0,
@@ -82,8 +80,7 @@ const projects = [
 ]
 
 const ProjectsList = () => {
-  const { themeMode } = useContext(ThemeContext);
-  const classes = useStyles({themeMode});
+  const classes = useStyles();
 
   return (
     <div className={classes.bgOverlay}>
