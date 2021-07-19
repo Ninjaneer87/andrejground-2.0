@@ -10,7 +10,7 @@ import Layout from './components/layout/Layout';
 import { darkTheme, lightTheme } from './themes';
 import { useContext } from 'react';
 import ThemeContext from './context/themeContext';
-import ScrollToTop from './components/helpers/ScrollToTop';
+// import ScrollToTop from './components/helpers/ScrollToTop';
 
 function App() {
   const themeContext = useContext(ThemeContext);
@@ -18,7 +18,7 @@ function App() {
   return (
     <ThemeProvider theme={themeContext.themeMode === 'dark' ? darkTheme : lightTheme}>
       {/* <Router> */}
-        <ScrollToTop />
+        {/* <ScrollToTop /> */}
         <Layout>
             <Switch>
               <Route exact path="/">

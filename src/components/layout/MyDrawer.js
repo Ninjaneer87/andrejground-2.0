@@ -6,6 +6,7 @@ import { useContext } from "react";
 import NavContext, { menuItems } from "../../context/navContext";
 import Logo from "../UI/Logo";
 import { grey } from "@material-ui/core/colors";
+import { scrollTopClick } from "../helpers/utility";
 
 const drawerWidth = 250;
 
@@ -66,6 +67,11 @@ const MyDrawer = () => {
 
   const navContext = useContext(NavContext);
 
+  const linkHandler = () => {
+    navContext.setExpanded(false)
+    scrollTopClick();
+  }
+
   const drawerHeader = <div>
     <Typography
       variant='h6'
@@ -86,7 +92,7 @@ const MyDrawer = () => {
             component={Link}
             to={item.path}
             className={`${location.pathname === item.path ? classes.active : ''} ${classes.listItem}`}
-            onClick={() => navContext.setExpanded(false)}
+            onClick={linkHandler}
           >
             <ListItemText primary={item.text} />
           </ListItem>

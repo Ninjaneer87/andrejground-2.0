@@ -6,6 +6,7 @@ import heroImage from '../../../assets/img/bg.jpg';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
+import { scrollTopClick } from '../../helpers/utility';
 
 const useStyles = makeStyles(theme => ({
   paralaxRoot: {
@@ -143,6 +144,7 @@ const Hero = ({ setActiveSection, setRefs }) => {
                   component={Link}
                   to='/portfolio'
                   endIcon={<ArrowRightAltIcon />}
+                  onClick={scrollTopClick}
                 >
                   PROJECTS
                 </Button>
@@ -154,6 +156,7 @@ const Hero = ({ setActiveSection, setRefs }) => {
                   component={Link}
                   to='/contact'
                   endIcon={<ArrowRightAltIcon />}
+                  onClick={scrollTopClick}
                 >
                   Let's build
                 </Button>

@@ -13,6 +13,7 @@ import SendOutlinedIcon from '@material-ui/icons/SendOutlined';
 import { Link } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
+import { scrollTopClick } from '../../helpers/utility';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -189,6 +190,7 @@ const ContactInfo = ({ setActiveSection, setRefs }) => {
             component={Link}
             to='/contact'
             endIcon={<SendOutlinedIcon />}
+            onClick={scrollTopClick}
           >
             Send a message
           </Button>

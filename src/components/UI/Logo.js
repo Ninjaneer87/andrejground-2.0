@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logoImg from '../../assets/img/logo.png';
 import NavContext from '../../context/navContext';
+import { useLocation } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,10 +37,16 @@ const useStyles = makeStyles(theme => ({
 const Logo = (props) => {
   const classes = useStyles();
   const navContext = useContext(NavContext)
+  const { pathname } = useLocation();
+
+  const logoHandler = () => {
+    navContext.setExpanded(false);
+    pathname === '/' ? document.body.scrollIntoView({behavior: 'smooth'}) : window.scrollTo(0, 0);
+  }
 
   return (
     <ButtonBase style={{borderRadius: 16, color: "#000"}}>
-      <Link to='/' className={classes.root} onClick={() => navContext.setExpanded(false)}>
+      <Link to='/' className={classes.root} onClick={logoHandler}>
         <img className={classes.logoImg} src={logoImg} alt='logo' />
         {props.header && <Typography className={classes.logoText}>
           <span className='cyan'>Andrej</span>Ground

@@ -32,7 +32,7 @@ const Footer = () => {
 
 
   return (
-    <section className={classes.root}>
+    <section className={`${classes.root} fadeIn`}>
       <Typography className={classes.text}>
         Let's build some cool stuff!
       </Typography>

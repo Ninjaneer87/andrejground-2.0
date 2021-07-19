@@ -14,6 +14,7 @@ const useStyles = makeStyles(theme => ({
     margin: '0 auto',
     transition: `all ${theme.transitions.duration.short}ms ease-in-out`,
     zIndex: 1,
+    position: 'relative',
     [theme.breakpoints.up(600)]: {
       padding: '2rem',
     },
@@ -34,7 +35,7 @@ const DefaultCard = (props) => {
 
   return (
     <div
-      className={classes.root}
+      className={`${classes.root} scaleIn`}
       style={{ 
         maxWidth: props.maxWidth || '100%', 
         height: props.height || '100%',

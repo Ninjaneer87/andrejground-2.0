@@ -15,8 +15,10 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'flex-start',
     minHeight: '100vh',
     position: 'relative',
-    boxShadow: `inset 0px 0px 20px ${theme.palette.custom.boxShadowColor}`,
-    padding: theme.spacing(3),
+    // boxShadow: `inset 0px 0px 20px ${theme.palette.custom.boxShadowColor}`,
+    [theme.breakpoints.up('md')]: {
+      padding: theme.spacing(3),
+    },
   },
   bgOverlay: {
     overflow: 'hidden',
@@ -24,9 +26,7 @@ const useStyles = makeStyles(theme => ({
     '&::after': {
       content: '""',
       backgroundImage: `url('${patternImage2}')`,
-      // backgroundRepeat: 'repeat',
       backgroundPosition: 'center',
-      // backgroundAttachment: 'fixed',
       opacity: .35,
       filter: 'drop-shadow(0px 0px 1px #fff)',
       position: 'absolute',
@@ -54,28 +54,32 @@ const projects = [
     title: 'Coinland',
     liveLink: 'https://ninjaneer87.github.io/coinland/',
     codeLink: 'https://github.com/Ninjaneer87/coinland/',
-    image: coinlandImage
+    image: coinlandImage,
+    type: 'PRACTICE'
   },
   {
     id: 1,
     title: 'AndrejGround v1',
     liveLink: 'https://ninjaneer87.github.io/andrejground/',
     codeLink: 'https://github.com/Ninjaneer87/andrejground/',
-    image: andrejgroundImage
+    image: andrejgroundImage,
+    type: 'PRACTICE'
   },
   {
     id: 2,
     title: 'Infobiz Website',
     liveLink: 'https://www.infobiz.rs/',
     codeLink: '',
-    image: infobizImage
+    image: infobizImage,
+    type: 'WORK'
   },
   {
     id: 3,
     title: 'Infobiz App',
     liveLink: 'https://app.infobiz.rs/',
     codeLink: '',
-    image: infobizAppImage
+    image: infobizAppImage,
+    type: 'WORK'
   },
 ]
 
@@ -97,6 +101,7 @@ const ProjectsList = () => {
                   liveLink={project.liveLink}
                   codeLink={project.codeLink}
                   image={project.image}
+                  type={project.type}
                 />
               </Grid>)}
           </Grid>

@@ -55,11 +55,30 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'start',
     lineHeight: 1.7
   },
+  type: {
+    position: 'absolute',
+    top: 10,
+    // height: 20,
+    right: -10,
+    color: '#212121',
+    backgroundColor: theme.palette.custom.accent,
+    padding: '5px 10px',
+    fontSize: 12,
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      top: '50%',
+      right: 'calc(100% - 10px)',
+      bottom: 0,
+      border: `10px solid ${theme.palette.custom.accent}`,
+      transform: 'translateY(-50%) rotate(45deg)',
+      zIndex: -1
+    }
+  },
 }));
 
 
-const ProjectItem = ({ image, title, liveLink, codeLink, id }) => {
-  console.log(typeof image)
+const ProjectItem = ({ image, title, liveLink, codeLink, id, type }) => {
   const classes = useStyles({ image });
   const themeContext = useContext(ThemeContext);
   return (
@@ -68,6 +87,7 @@ const ProjectItem = ({ image, title, liveLink, codeLink, id }) => {
       width='90%'
       height='fit-content'
     >
+      <Typography className={classes.type}>{type}</Typography>
       <Typography component='h3' variant='h5' className={classes.subtitle}>
         {title}
       </Typography>

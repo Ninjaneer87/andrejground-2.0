@@ -14,6 +14,7 @@ import NavContext, { menuItems } from "../../context/navContext";
 import { useContext } from "react";
 import { grey } from "@material-ui/core/colors";
 import ThemeContext from "../../context/themeContext";
+import { scrollTopClick } from '../helpers/utility';
 
 const useStyles = makeStyles(theme => ({
   appBar: ({isScrolled}) => {
@@ -130,9 +131,9 @@ const MyAppBar = (props) => {
               <ListItem
                 key={item.id}
                 className={`${location.pathname === item.path ? classes.active : ''} ${classes.listItem}`}
-                // button
                 component={NavLink}
                 to={item.path}
+                onClick={scrollTopClick}
               >
                 <ListItemText primary={item.text} />
               </ListItem>)

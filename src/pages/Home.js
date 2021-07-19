@@ -12,6 +12,8 @@ import AssignmentTurnedInOutlinedIcon from '@material-ui/icons/AssignmentTurnedI
 import BuildOutlinedIcon from '@material-ui/icons/BuildOutlined';
 import FolderSpecialOutlinedIcon from '@material-ui/icons/FolderSpecialOutlined';
 import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
+import Footer from '../components/layout/Footer';
+import { makeStyles } from '@material-ui/core';
 
 const sections = [
   {
@@ -38,15 +40,25 @@ const sections = [
 const refs = {};
 const setRefs = (sectionName, ref) => refs[sectionName] = ref;
 
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    flexFlow: 'column',
+    minHeight: '100vh',
+  }
+}))
 const Home = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const classes = useStyles();
 
   const activateSection = useCallback((section) => {
     refs[section].scrollIntoView({behavior: 'smooth'});
   }, []);
 
+  
   return (
-    <div>
+    <div className={classes.root}>
       <Starfall />
 
       <Hero
@@ -79,6 +91,7 @@ const Home = () => {
         activeSection={activeSection}
         activateSection={activateSection}
       />
+      <Footer />
     </div>
   );
 };

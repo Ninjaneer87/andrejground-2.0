@@ -13,6 +13,7 @@ import ThemeContext from '../../../context/themeContext';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 import DefaultCard from '../../cards/DefaultCard';
+import { scrollTopClick } from '../../helpers/utility';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     minHeight: '100vh',
     position: 'relative',
-    boxShadow: `inset 0px 0px 20px ${theme.palette.custom.boxShadowColor}`,
+    // boxShadow: `inset 0px 0px 20px ${theme.palette.custom.boxShadowColor}`,
     padding: theme.spacing(3),
   },
   bgOverlay: {
@@ -181,6 +182,7 @@ const Projects = ({ setActiveSection, setRefs }) => {
                   endIcon={<ArrowRightAltIcon />}
                   component={Link}
                   to='/portfolio'
+                  onClick={scrollTopClick}
                 >
                   More projects
                 </Button>
