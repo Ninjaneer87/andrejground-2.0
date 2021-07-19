@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core";
 import MyAppBar from './MyAppBar';
 import MyDrawer from './MyDrawer';
 import MyLoader from './../UI/MyLoader';
+import ScrollTop from './../UI/ScrollTop';
 
 
 const useStyles = makeStyles(theme => ({
@@ -30,6 +31,7 @@ const Layout = (props) => {
       <div className={classes.page}>
         {props.children}
       </div>
+      <ScrollTop />
     </div>
   );
 };

@@ -5,6 +5,8 @@ const NavContext = createContext({
   isExpanded: false,
   toggleExpanded: () => {},
   setExpanded: exp => {},
+  isScrolled: false,
+  setIsScrolled: scrolled => {},
 });
 
 export const menuItems = [
@@ -32,6 +34,7 @@ export const menuItems = [
 
 export const NavContextProvider = (props) => {
   const [expanded, setExpanded] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const toggleExpandedHandler = useCallback(() => {
     setExpanded(prevExpanded => !prevExpanded)
@@ -40,10 +43,16 @@ export const NavContextProvider = (props) => {
     setExpanded(exp)
   }, [])
 
+  const setIsScrolledHandler = useCallback(scrolled => {
+    setScrolled(scrolled);
+  }, [])
+
   const context = {
     isExpanded: expanded,
     toggleExpanded: toggleExpandedHandler,
     setExpanded: setExpandedHandler,
+    isScrolled: scrolled,
+    setIsScrolled: setIsScrolledHandler,
   };
 
   return <NavContext.Provider value={context}>

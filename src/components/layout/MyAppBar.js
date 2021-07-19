@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AppBar, makeStyles, useMediaQuery, useTheme } from "@material-ui/core";
 import Logo from "../UI/Logo";
 import { useInView } from "react-intersection-observer";
@@ -91,7 +91,7 @@ const useStyles = makeStyles(theme => ({
 
 
 const MyAppBar = (props) => {
-  const navContext = useContext(NavContext);
+  const {toggleExpanded, setIsScrolled} = useContext(NavContext);
   const themeContext = useContext(ThemeContext);
   const location = useLocation();
 
@@ -104,6 +104,9 @@ const MyAppBar = (props) => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
 
+  useEffect(() => {
+    setIsScrolled(isScrolled);
+  }, [isScrolled, setIsScrolled])
   return (
     <div>
       <div ref={toolbarScrollRef}>
@@ -123,7 +126,7 @@ const MyAppBar = (props) => {
               className={classes.menuButton}
               color="inherit"
               aria-label="menu"
-              onClick={navContext.toggleExpanded}
+              onClick={toggleExpanded}
             >
               <MenuIcon fontSize='large' className={classes.navIcon} />
             </IconButton> :

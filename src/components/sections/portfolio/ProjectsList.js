@@ -67,18 +67,18 @@ const projects = [
   },
   {
     id: 2,
-    title: 'Infobiz Website',
-    liveLink: 'https://www.infobiz.rs/',
-    codeLink: '',
-    image: infobizImage,
-    type: 'WORK'
-  },
-  {
-    id: 3,
     title: 'Infobiz App',
     liveLink: 'https://app.infobiz.rs/',
     codeLink: '',
     image: infobizAppImage,
+    type: 'WORK'
+  },
+  {
+    id: 3,
+    title: 'Infobiz Website',
+    liveLink: 'https://www.infobiz.rs/',
+    codeLink: '',
+    image: infobizImage,
     type: 'WORK'
   },
 ]

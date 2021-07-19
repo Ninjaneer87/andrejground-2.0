@@ -61,6 +61,7 @@ const useStyles = makeStyles(theme => ({
     // height: 20,
     right: -10,
     color: '#212121',
+    // color: '#212121',
     backgroundColor: theme.palette.custom.accent,
     padding: '5px 10px',
     fontSize: 12,
