@@ -132,7 +132,7 @@ const ContactInfo = ({ setActiveSection, setRefs }) => {
     <div className={classes.bgOverlay}>
       <section className={classes.root} ref={scrollRef}>
         <Box maxWidth='90vw' width={450} padding='30px 0' margin='0 auto' className='fadeIn'>
-          <Heading text="Contact Info" inverse />
+          <Heading text="Contact info" inverse />
           <List>
             <ListItem disableGutters style={{ marginBottom: 20 }}>
               <ListItemIcon>

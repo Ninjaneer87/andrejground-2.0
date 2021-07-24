@@ -9,6 +9,7 @@ import patternImage from '../../../assets/img/pattern2.png';
 import { Link } from "react-router-dom";
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
+import { scrollTopClick } from './../../helpers/utility';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -105,7 +106,7 @@ const Mission = ({ setActiveSection, setRefs }) => {
                   <img className={classes.image} src={aboutImage} alt='icon' />
                 </div>
                 <div className={classes.text}>
-                  This is the place where ideas get converted into code. If you are into any of those two,<br /> let's <Link to='/contact' className='cyan'>get in touch</Link> and build.
+                  This is the place where ideas get converted into code. If you are into any of those two,<br /> let's <Link to='/contact' className='cyan' onClick={scrollTopClick} >get in touch</Link> and build.
                 </div>
               </DefaultCard>
             </Grid>
@@ -115,7 +116,7 @@ const Mission = ({ setActiveSection, setRefs }) => {
                   <img className={classes.image} src={uiUxImage} alt='icon' />
                 </div>
                 <div className={classes.text}>
-                  Outstanding UI and UX are a must-have in today's age of short attention span on the web <i>(and in general)</i>. If it's not intuitive - before you know it, your app is a ghost town.
+                  To attract and retain user attention, there is a need for catchy UI and smooth UX, which will lead to engagement and interaction.
                 </div>
               </DefaultCard>
             </Grid>
@@ -125,7 +126,7 @@ const Mission = ({ setActiveSection, setRefs }) => {
                   <img className={classes.image} src={goalImage} alt='icon' />
                 </div>
                 <div className={classes.text}>
-                  The mission here is to create engaging, user friendly web applications, using the latest technologies, and make sure they achieve the desired effect.
+                  The mission here is to create performant, modern, user friendly web applications, with the latest technologies, and to make sure they achieve the desired effect.
                 </div>
               </DefaultCard>
             </Grid>

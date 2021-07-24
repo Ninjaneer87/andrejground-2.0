@@ -5,6 +5,8 @@ import Footer from '../components/layout/Footer';
 import { makeStyles } from '@material-ui/core';
 import patternImage2 from '../assets/img/pattern2.png';
 import Intro from '../components/sections/about/Intro';
+import AboutMe from './../components/sections/about/AboutMe';
+import Values from './../components/sections/about/Values';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -41,6 +43,8 @@ const About = () => {
         <Starfall />
         <PageTitle pageTitle='About' />
         <Intro />
+        <AboutMe />
+        <Values />
         <Footer />
       </div>
     </div>

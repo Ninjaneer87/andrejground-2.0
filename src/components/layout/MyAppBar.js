@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   appBar: ({isScrolled}) => {
     const styles = {
       transition: `all ${theme.transitions.duration.short}ms ease-in-out`,
-      height: 90,
+      minHeight: 90,
       flexFlow: 'row',
       justifyContent: 'space-between',
       color: theme.palette.custom.textColor,
@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
     }
     const scrolled = {
       color: theme.palette.custom.textColor,
-      height: 60,
+      minHeight: 60,
       borderBottom: `1px solid ${theme.palette.custom.appbarBorderColor}`,
       background: grey[900],
       boxShadow: `0px 0px 20px rgba(0, 0, 0, 0.38)`,
@@ -137,6 +137,7 @@ const MyAppBar = (props) => {
                 component={NavLink}
                 to={item.path}
                 onClick={scrollTopClick}
+                button
               >
                 <ListItemText primary={item.text} />
               </ListItem>)

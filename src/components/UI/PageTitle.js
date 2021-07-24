@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     textAlign: 'start',
     alignItems: 'flex-end',
-    minHeight: '30vh',
+    minHeight: '25vh',
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
     position: 'relative',
     overflow: 'hidden',

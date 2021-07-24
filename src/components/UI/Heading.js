@@ -5,6 +5,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     color: inverse => inverse === true ? '#fff' : theme.palette.custom.textColor,
     position: 'relative',
+    textAlign: 'center',
     margin: '50px 0 80px 0',
     [theme.breakpoints.down(768)]: {
       // fontSize: '35px',

@@ -1,7 +1,11 @@
 import React from 'react';
-import { Box, Container, makeStyles, Typography } from '@material-ui/core';
+import { Box, Container, List, ListItem, ListItemIcon, ListItemText, makeStyles, Typography } from '@material-ui/core';
 import Heading from '../../UI/Heading';
 import logoImg from '../../../assets/img/logo.png';
+// import MenuBookIcon from '@material-ui/icons/MenuBook';
+import LocalLibraryOutlinedIcon from '@material-ui/icons/LocalLibraryOutlined';
+import ImportantDevicesOutlinedIcon from '@material-ui/icons/ImportantDevicesOutlined';
+import VideoLibraryOutlinedIcon from '@material-ui/icons/VideoLibraryOutlined';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -10,6 +14,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
+    minHeight: '100vh',
   },
   subTitle: {
     maxWidth: 600,
@@ -40,20 +45,112 @@ const useStyles = makeStyles(theme => ({
       borderRight: `2px solid #fff`,
       borderRadius: '100vh',
     }
+  },
+  list: {
+    display: 'flex',
+    alignItems: 'flex-start',
+    [theme.breakpoints.down(600)]: {
+      flexWrap: 'wrap',
+    },
+  },
+  listItem: {
+    textAlign: 'center',
+    color: theme.palette.custom.textColor,
+    // padding: 0,
+    padding: '30px 0',
+    '&:nth-child(2)': {
+      '&::before': {
+        content: '""',
+        position: 'absolute',
+        right: 0,
+        top: '50%',
+        transform: 'translateY(-50%)',
+        width: 1,
+        height: '50%',
+        backgroundColor: theme.palette.custom.accent,
+        [theme.breakpoints.down(600)]: {
+          right: '50%',
+          top: 'unset',
+          bottom: 0,
+          transform: 'translateX(50%)',
+          width: '50%',
+          height: 1,
+        },
+      },
+      '&::after': {
+        content: '""',
+        position: 'absolute',
+        left: 0,
+        top: '50%',
+        transform: 'translateY(-50%)',
+        width: 1,
+        height: '50%',
+        backgroundColor: theme.palette.custom.accent,
+        [theme.breakpoints.down(600)]: {
+          right: '50%',
+          top: 0,
+          transform: 'translateX(50%)',
+          width: '50%',
+          height: 1,
+        },
+      }
+    }
+  },
+  icon: {
+    justifyContent: 'center',
+    color: theme.palette.custom.accent,
+    marginBottom: 30,
+    '& svg': {
+      fontSize: '3rem',
+    }
   }
 }));
 
+const stats = [
+  {
+    icon: <LocalLibraryOutlinedIcon fontSize='large' />,
+    number: '2+',
+    desc: 'years into frontend development'
+  },
+  {
+    icon: <ImportantDevicesOutlinedIcon fontSize='large' />,
+    number: '1+',
+    desc: 'years of building projects'
+  },
+  {
+    icon: <VideoLibraryOutlinedIcon fontSize='large' />,
+    number: '300+',
+    desc: 'hours of online courses and tutorials'
+  },
+]
 const Intro = () => {
   const classes = useStyles();
 
   return (
-      <Container maxWidth='xl' className={`${classes.root} fadeIn`}>
-        <Heading text="What is AndrejGround?" />
-        <Typography variant='h6' className={classes.subTitle}>
-          AndrejGround is actualy a pseudonim of a junior frontend developer who's looking for an enviroment to grow and build.
-        </Typography>
-        <Box className={classes.logoImage} />
-      </Container>
+    <Container maxWidth='xl' className={`${classes.root} fadeIn`}>
+      <Heading text="What is AndrejGround?" />
+      <Typography variant='h6' className={classes.subTitle}>
+        AndrejGround is actually an alias of a front-end developer named Andrej Forgač.
+      </Typography>
+      <Box className={classes.logoImage} />
+      <List className={classes.list}>
+        {stats.map(stat => (
+          <ListItem className={classes.listItem} key={stat.number}>
+            <ListItemText>
+              <ListItemIcon classes={{root: classes.icon}}>
+                {stat.icon}
+              </ListItemIcon>
+              <Typography variant='h4'>
+                {stat.number}
+              </Typography>
+              <Typography>
+                {stat.desc}
+              </Typography>
+            </ListItemText>
+          </ListItem>
+        ))}
+      </List>
+    </Container>
   );
 };
 

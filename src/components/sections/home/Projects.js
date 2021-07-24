@@ -39,7 +39,8 @@ const useStyles = makeStyles(theme => ({
       left: 0,
       bottom: 0,
       right: 0,
-      transform: 'scaleX(-1)'
+      transform: 'scaleX(-1)',
+      zIndex: -1,
     },
   },
   gridItem: {
@@ -140,9 +141,10 @@ const Projects = ({ setActiveSection, setRefs }) => {
                   COINLAND
                 </Typography>
                 <Typography className={classes.text}>
-                  This first practice project was intended to connect client side app to an api. All the data comes from <a target="_blank" rel="noopener noreferrer" href='https://coinmarketcap.com/' className='cyan'>coinmarketcap.com</a>.
+                  This practice project was intended to connect custom built client side app to an external API. All the data comes from <a target="_blank" rel="noopener noreferrer" href='https://coinmarketcap.com/' className='cyan'>coinmarketcap.com</a>.
                   <br />
-                  No frameworks, vanilla JavaScript, CSS & HTML.
+                  <br />
+                  <small>* AndrejGround's first ever project</small>
                 </Typography>
                 <ButtonGroup
                   aria-label="outlined primary button group"
