@@ -16,6 +16,9 @@ const StyledTextField = withStyles(theme => ({
       color: theme.palette.custom.textColor,
       opacity: 0.5,
     },
+    // '&:hover label': {
+    //   opacity: 1,
+    // },
     '& label.Mui-focused ': {
       opacity: 1,
     },

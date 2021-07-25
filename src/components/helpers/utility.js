@@ -2,7 +2,7 @@ const emailValidationPattern = /^\w+([.-]?\w+)+@\w+([.:]?\w+)+(\.[a-zA-Z0-9]{2,3
 
 export const scrollTopClick = () => setTimeout(() => window.scrollTo(0, 0), 0);
 
-export const checkValidity = (value, rules, passwordToMatch='') => {
+export const checkValidity = (value, rules) => {
   if(!rules) return true;
   let isValid = true;
   let message = '';

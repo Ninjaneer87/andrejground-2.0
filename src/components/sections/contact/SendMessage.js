@@ -12,7 +12,8 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
-    minHeight: '80vh',
+    minHeight: 700,
+    paddingBottom: 40
   },
   formContainer: {
     width: 600,
@@ -97,6 +98,7 @@ const SendMessage = () => {
   }
 
   const handleSubmit = e => {
+    console.log('submit tried')
     e.preventDefault();
     const submitForm = () => {
       const data = {}

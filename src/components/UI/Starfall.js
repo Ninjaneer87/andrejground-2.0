@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     right: 0,
     zIndex: -1,
     background: theme.palette.custom.backgroundColor,
-    // transition: `background ${theme.transitions.duration.short}ms ease`,
+    transition: `background ${theme.transitions.duration.short}ms ease`,
   },
   lines: {
     position: 'absolute',

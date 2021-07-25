@@ -9,13 +9,16 @@ const useStyles = makeStyles(theme => ({
     position: 'fixed',
     bottom: 10,
     right: 10,
-    transform: 'translateX(200%)',
+    transform: 'translateX(200%) scale(0.8)',
     transition: `all ${theme.transitions.duration.short}ms ease-in-out`,
     border: `2px solid ${theme.palette.custom.accent}`,
     // backgroundColor: 'rgba(0, 0, 0, .1)',
+    [theme.breakpoints.down(600)]: {
+      transform: 'translateX(200%) scale(0.8)',
+    },
   },
   show: {
-    transform: 'translateX(0)',
+    transform: 'translateX(0) scale(0.8)',
   }
 }))
 
@@ -32,7 +35,7 @@ const ScrollTop = () => {
       <IconButton
         edge="start"
         color="secondary"
-        aria-label="menu"
+        aria-label="scroll-top"
         onClick={scrollToTop}
         className={`${classes.root} ${isScrolled && classes.show}`}
       >
