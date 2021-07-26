@@ -4,6 +4,8 @@ import { checkValidity } from '../../helpers/utility';
 import Heading from '../../UI/Heading';
 import MyInput from '../../UI/MyInput';
 import SendOutlinedIcon from '@material-ui/icons/SendOutlined';
+import { showModal } from './../../UI/Modal';
+import MessageSuccess from '../../UI/MessageSuccess';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -110,6 +112,7 @@ const SendMessage = () => {
     }
     if (formIsValid) {
       submitForm();
+      showModal(<MessageSuccess />);
     }
   }
 
@@ -145,7 +148,7 @@ const SendMessage = () => {
         className={classes.button}
         type='submit'
         color='secondary'
-        variant='outlined'
+        variant='contained'
         endIcon={<SendOutlinedIcon />}
         fullWidth
         disabled={!formIsValid}

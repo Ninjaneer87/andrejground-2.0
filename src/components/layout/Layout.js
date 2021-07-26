@@ -4,6 +4,8 @@ import MyAppBar from './MyAppBar';
 import MyDrawer from './MyDrawer';
 import MyLoader from './../UI/MyLoader';
 import ScrollTop from './../UI/ScrollTop';
+import Notification from '../UI/Notification';
+import Modal from '../UI/Modal';
 
 
 const useStyles = makeStyles(theme => ({
@@ -32,6 +34,8 @@ const Layout = (props) => {
         {props.children}
       </div>
       <ScrollTop />
+      <Notification />
+      <Modal />
     </div>
   );
 };

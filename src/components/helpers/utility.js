@@ -19,3 +19,22 @@ export const checkValidity = (value, rules) => {
   }
   return {isValid, message};
 }
+
+export function selectText(node) {
+    if (document.body.createTextRange) {
+        const range = document.body.createTextRange();
+        range.moveToElementText(node);
+        range.select();
+        return true;
+    } else if (window.getSelection) {
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(node);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        return true;
+    } else {
+        console.warn("Could not select text in node: Unsupported browser.");
+        return false;
+    }
+}

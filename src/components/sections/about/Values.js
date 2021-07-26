@@ -6,16 +6,6 @@ import ValuesTabsMobile from './ValuesTabsMobile';
 
 const values = [
   {
-    title: 'Think Clearly',
-    content: <>
-      We consider clarity of thought to be the single most important trait we look for in our colleagues
-      <br /><br />
-      We think about the message we want to deliver before we speak, and know what is important and what is not
-      <br /><br />
-      We are concise and articulate, putting effort into making things simple and easy to understand
-    </>,
-  },
-  {
     title: 'Be Resourceful',
     content: <>
       We go beyond the surface to gain a deep understanding of every issue

@@ -9,16 +9,17 @@ const useStyles = makeStyles(theme => ({
     position: 'fixed',
     bottom: 10,
     right: 10,
-    transform: 'translateX(200%) scale(0.8)',
+    padding: 3,
+    transform: 'translateX(200%)',
     transition: `all ${theme.transitions.duration.short}ms ease-in-out`,
     border: `2px solid ${theme.palette.custom.accent}`,
     // backgroundColor: 'rgba(0, 0, 0, .1)',
     [theme.breakpoints.down(600)]: {
-      transform: 'translateX(200%) scale(0.8)',
+      transform: 'translateX(200%)',
     },
   },
   show: {
-    transform: 'translateX(0) scale(0.8)',
+    transform: 'translateX(0)',
   }
 }))
 

@@ -5,6 +5,7 @@ import Footer from '../components/layout/Footer';
 import { makeStyles } from '@material-ui/core';
 import SendMessage from './../components/sections/contact/SendMessage';
 import patternImage2 from '../assets/img/pattern2.png';
+import Info from '../components/sections/contact/Info';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -40,6 +41,7 @@ const Contact = () => {
       <div className={classes.root}>
         <Starfall />
         <PageTitle pageTitle='Contact' />
+        <Info />
         <SendMessage />
         <Footer />
       </div>

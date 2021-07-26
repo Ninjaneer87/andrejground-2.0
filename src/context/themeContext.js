@@ -2,6 +2,8 @@ import React from 'react';
 import { createContext, useState } from "react";
 
 const initialThemeMode = localStorage.getItem('themeMode') || 'dark';
+initialThemeMode === 'dark' ? document.body.classList.add('dark') : document.body.classList.remove('dark')
+
 const ThemeContext = createContext({
   themeMode: initialThemeMode,
   toggleTheme: () => {},
