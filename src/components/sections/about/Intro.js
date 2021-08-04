@@ -130,7 +130,7 @@ const Intro = () => {
     <Container maxWidth='xl' className={`${classes.root} fadeIn`}>
       <Heading text="What is AndrejGround?" />
       <Typography variant='h6' className={classes.subTitle}>
-        AndrejGround is actually an alias of a front-end developer named Andrej Forgač.
+        AndrejGround is just an alias of a front-end developer named Andrej Forgač.
       </Typography>
       <Box className={classes.logoImage} />
       <List className={classes.list}>

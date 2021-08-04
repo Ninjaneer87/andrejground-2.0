@@ -36,6 +36,7 @@ const useStyles = makeStyles(theme => ({
       bottom: 0,
       right: 0,
       [theme.breakpoints.up(992)]: {
+        backgroundSize: 'auto',
         transform: 'scale(1.2)',
         backgroundAttachment: 'fixed',
       },

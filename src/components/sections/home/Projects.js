@@ -64,8 +64,6 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.custom.textColor,
     fontWeight: 400,
     padding: theme.spacing(1),
-    // backgroundColor: '#00e5ff44',
-    // backgroundColor: theme.palette.primary.dark,
     borderRadius: 10,
     width: 'fit-content',
     minWidth: 200,

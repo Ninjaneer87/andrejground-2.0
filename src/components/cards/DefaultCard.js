@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
+    // boxShadow: '0px 0px 30px 0px #ffffff66',
     padding: '1rem .5rem',
     borderRadius: '2rem',
     backgroundColor: theme.palette.custom.cardBgColor,

@@ -91,7 +91,11 @@ const MyDrawer = () => {
             button
             component={Link}
             to={item.path}
-            className={`${location.pathname === item.path ? classes.active : ''} ${classes.listItem}`}
+            className={`${(
+              (location.pathname.startsWith(item.path) && item.path.length > 1) ||
+              (location.pathname === '/' && location.pathname === item.path)
+            ) && classes.active} 
+            ${classes.listItem}`}
             onClick={linkHandler}
           >
             <ListItemText primary={item.text} />

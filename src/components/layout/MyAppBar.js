@@ -17,7 +17,7 @@ import ThemeContext from "../../context/themeContext";
 import { scrollTopClick } from '../helpers/utility';
 
 const useStyles = makeStyles(theme => ({
-  appBar: ({isScrolled}) => {
+  appBar: ({ isScrolled }) => {
     const styles = {
       transition: `all ${theme.transitions.duration.short}ms ease-in-out`,
       minHeight: 90,
@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
   },
   logo: {
     transition: `all ${theme.transitions.duration.short}ms ease-in-out`,
-    transform: ({isScrolled}) => isScrolled ? 'translateX(30%)' : 'translateX(60%)',
+    transform: ({ isScrolled }) => isScrolled ? 'translateX(30%)' : 'translateX(60%)',
     width: 'fit-content'
   },
   navbar: {
@@ -59,7 +59,7 @@ const useStyles = makeStyles(theme => ({
       marginRight: theme.spacing(5),
     },
   },
-  listItem: ({isScrolled}) => {
+  listItem: ({ isScrolled }) => {
     const styles = {
       width: 'fit-content',
       marginLeft: theme.spacing(5),
@@ -91,7 +91,7 @@ const useStyles = makeStyles(theme => ({
 
 
 const MyAppBar = (props) => {
-  const {toggleExpanded, setIsScrolled} = useContext(NavContext);
+  const { toggleExpanded, setIsScrolled } = useContext(NavContext);
   const themeContext = useContext(ThemeContext);
   const location = useLocation();
 
@@ -100,7 +100,7 @@ const MyAppBar = (props) => {
   });
   const isScrolled = !toolbarInView;
 
-  const classes = useStyles({isScrolled});
+  const classes = useStyles({ isScrolled });
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -133,7 +133,11 @@ const MyAppBar = (props) => {
             menuItems.map(item =>
               <ListItem
                 key={item.id}
-                className={`${location.pathname === item.path ? classes.active : ''} ${classes.listItem}`}
+                className={`${(
+                  (location.pathname.startsWith(item.path) && item.path.length > 1) ||
+                  (location.pathname === '/' && location.pathname === item.path)
+                ) && classes.active} 
+                ${classes.listItem}`}
                 component={NavLink}
                 to={item.path}
                 onClick={scrollTopClick}
@@ -142,6 +146,7 @@ const MyAppBar = (props) => {
                 <ListItemText primary={item.text} />
               </ListItem>)
           }
+
           <IconButton
             edge="start"
             className={classes.menuButton}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { makeStyles, Box, List, ListItem, ListItemIcon, ListItemText, Typography, Divider, Button } from '@material-ui/core';
 import bgImage from '../../../assets/img/bg4.jpg';
 // import { Parallax } from 'react-parallax';
@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 import { scrollTopClick } from '../../helpers/utility';
+import ClipboardCopy from '../../UI/ClipboardCopy';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -43,7 +44,7 @@ const useStyles = makeStyles(theme => ({
       bottom: 0,
       right: 0,
       [theme.breakpoints.up(992)]: {
-        transform: 'scale(1.2)',
+        transform: 'scale(1.3)',
         backgroundAttachment: 'fixed',
       },
     },
@@ -98,6 +99,7 @@ const useStyles = makeStyles(theme => ({
 
 const ContactInfo = ({ setActiveSection, setRefs }) => {
   const classes = useStyles();
+  const emailRef = useRef(null);
 
   const { ref: scrollRef, inView: scrollInView, entry } = useInView({
     rootMargin: '-50%'
@@ -159,10 +161,17 @@ const ContactInfo = ({ setActiveSection, setRefs }) => {
                   component='a'
                   href='mailto:contact@andrejground.com'
                   className={`white ${classes.emailLink}`}
-                  style={{ fontWeight: 400 }}
+                  style={{ fontWeight: 400 , marginRight: 6}}
+                  ref={emailRef}
                 >
                   contact@andrejground.com
                 </Typography>
+                <span className='white link'>
+                  <ClipboardCopy
+                    content='contact@andrejground.com'
+                    ref={emailRef}
+                  />
+                </span>
               </ListItemText>
             </ListItem>
           </List>

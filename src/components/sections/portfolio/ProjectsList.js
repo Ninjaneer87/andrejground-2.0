@@ -1,12 +1,8 @@
 import React from 'react';
 import { makeStyles, Box, Grid } from '@material-ui/core';
-import patternImage2 from '../../../assets/img/pattern2.png';
-import coinlandImage from '../../../assets/img/coinland-framed.png';
-import andrejgroundImage from '../../../assets/img/andrejground1-framed.png';
-import infobizImage from '../../../assets/img/infobiz-framed.png';
-import infobizAppImage from '../../../assets/img/infobiz-app-framed.png';
 import Heading from '../../UI/Heading';
 import ProjectItem from './ProjectItem';
+import patternImage2 from '../../../assets/img/pattern2.png';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -15,7 +11,6 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'flex-start',
     minHeight: '100vh',
     position: 'relative',
-    // boxShadow: `inset 0px 0px 20px ${theme.palette.custom.boxShadowColor}`,
     [theme.breakpoints.up('md')]: {
       padding: theme.spacing(3),
     },
@@ -48,64 +43,28 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const projects = [
-  {
-    id: 0,
-    title: 'Coinland',
-    liveLink: 'https://ninjaneer87.github.io/coinland/',
-    codeLink: 'https://github.com/Ninjaneer87/coinland/',
-    image: coinlandImage,
-    type: 'PRACTICE'
-  },
-  {
-    id: 1,
-    title: 'AndrejGround v1',
-    liveLink: 'https://ninjaneer87.github.io/andrejground/',
-    codeLink: 'https://github.com/Ninjaneer87/andrejground/',
-    image: andrejgroundImage,
-    type: 'PRACTICE'
-  },
-  {
-    id: 2,
-    title: 'Infobiz App',
-    liveLink: 'https://app.infobiz.rs/',
-    codeLink: '',
-    image: infobizAppImage,
-    type: 'WORK'
-  },
-  {
-    id: 3,
-    title: 'Infobiz Website',
-    liveLink: 'https://www.infobiz.rs/',
-    codeLink: '',
-    image: infobizImage,
-    type: 'WORK'
-  },
-]
-
-const ProjectsList = () => {
+const ProjectsList = ({ projects }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.bgOverlay}>
+    <div className={`${classes.bgOverlay} fadeIn`}>
       <section className={classes.root}>
-        <Box width='100%' padding='30px 0' className='fadeIn'>
-          {/* <Container maxWidth='xl' className='fadeIn'> */}
+        <Box width='100%' padding='30px 0'>
           <Heading text="Projects" />
           <Grid container spacing={5} >
             {projects.map(project =>
-              <Grid item xs={12} md={6} className={classes.contentHolder} key={project.id}>
+              <Grid item xs={12} md={6} className={classes.contentHolder} key={project._id}>
                 <ProjectItem
-                  id={project.id}
+                  id={project._id}
+                  slug={project.slug}
                   title={project.title}
-                  liveLink={project.liveLink}
+                  siteLink={project.siteLink}
                   codeLink={project.codeLink}
                   image={project.image}
-                  type={project.type}
+                  projectType={project.projectType}
                 />
               </Grid>)}
           </Grid>
-          {/* </Container> */}
         </Box>
       </section>
     </div>

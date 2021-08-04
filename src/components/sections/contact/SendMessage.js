@@ -1,11 +1,11 @@
-import { Container, makeStyles, Button } from '@material-ui/core';
+import { Container, makeStyles, Button, CircularProgress } from '@material-ui/core';
 import React, { useCallback, useState } from 'react';
 import { checkValidity } from '../../helpers/utility';
 import Heading from '../../UI/Heading';
 import MyInput from '../../UI/MyInput';
 import SendOutlinedIcon from '@material-ui/icons/SendOutlined';
-import { showModal } from './../../UI/Modal';
-import MessageSuccess from '../../UI/MessageSuccess';
+import { sendMail } from './../../../apiCalls';
+import LoadingBar from './../../UI/LoadingBar';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -37,7 +37,7 @@ const initialInputs = {
   },
   email: {
     elementType: 'text-input',
-    label: 'Email',
+    label: 'Your email',
     value: '',
     validationRules: {
       required: true,
@@ -71,6 +71,7 @@ const SendMessage = () => {
   const classes = useStyles();
   const [inputs, setInputs] = useState(initialInputs);
   const [formIsValid, setFormIsValid] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const inputHandler = useCallback((value, inputIdentifier) => {
     const updatedInputs = { ...inputs }
@@ -100,19 +101,17 @@ const SendMessage = () => {
   }
 
   const handleSubmit = e => {
-    console.log('submit tried')
     e.preventDefault();
-    const submitForm = () => {
+    const submitForm = async () => {
       const data = {}
       for (let key in inputs) {
-        data[key] = inputs[key].value;
+        data[key] = inputs[key].value.trim();
       }
-      console.log({ data })
-      resetForm()
+      await sendMail(data, setLoading);
+      resetForm();
     }
     if (formIsValid) {
       submitForm();
-      showModal(<MessageSuccess />);
     }
   }
 
@@ -149,17 +148,18 @@ const SendMessage = () => {
         type='submit'
         color='secondary'
         variant='contained'
-        endIcon={<SendOutlinedIcon />}
+        endIcon={!loading && <SendOutlinedIcon />}
         fullWidth
         disabled={!formIsValid}
       >
-        Send
+        {!loading ? 'Send' : <CircularProgress size={24}  />}
       </Button>
     </form>
   )
   
   return (
     <Container maxWidth='lg' className={`${classes.root} fadeIn`}>
+      {loading && <LoadingBar />}
       <Heading text="Send a message" />
       <div className={classes.formContainer}>
         {form}

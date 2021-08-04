@@ -7,7 +7,7 @@ import { notify } from './Notification';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    marginLeft: 6,
+    // marginLeft: 6,
     cursor: 'pointer',
     transition: 'color 250ms linear',
     '&:hover': {

@@ -54,19 +54,11 @@ const useStyles = makeStyles(theme => ({
 const PageTitle = (props) => {
   const classes = useStyles();
   return (
-    // <Parallax
-    //   blur={1}
-    //   bgImage={heroImage}
-    //   bgImageAlt="tech"
-    //   strength={300}
-    //   bgImageStyle={{ top: '-130px' }}
-    // >
       <div className={classes.root}>
           <Typography component='h1' variant='h2' className={`${classes.pageTitle} fadeIn`}>
             {props.pageTitle}
           </Typography>
       </div>
-    // </Parallax>
   );
 };
 

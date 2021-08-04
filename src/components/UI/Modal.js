@@ -57,7 +57,6 @@ const Modal = () => {
         }
     }, [show]);
 
-    
     return ReactDom.createPortal(
         <div>
             <div 

@@ -8,10 +8,12 @@ import CodeIcon from '@material-ui/icons/Code';
 import LinkIcon from '@material-ui/icons/Link';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import ThemeContext from '../../../context/themeContext';
+import { scrollTopClick } from '../../helpers/utility';
+import { imagesPath } from '../../../config';
 
 const useStyles = makeStyles(theme => ({
   image: {
-    backgroundImage: ({ image }) => `url('${image}')`,
+    backgroundImage: ({ image }) => image && `url('${imagesPath}${image}')`,
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     backgroundSize: 'contain',
@@ -58,13 +60,12 @@ const useStyles = makeStyles(theme => ({
   type: {
     position: 'absolute',
     top: 10,
-    // height: 20,
     right: -10,
     color: '#212121',
-    // color: '#212121',
     backgroundColor: theme.palette.custom.accent,
     padding: '5px 10px',
     fontSize: 12,
+    textTransform: 'uppercase',
     '&::before': {
       content: '""',
       position: 'absolute',
@@ -79,7 +80,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-const ProjectItem = ({ image, title, liveLink, codeLink, id, type }) => {
+const ProjectItem = ({ image, title, siteLink, codeLink, slug, projectType }) => {
   const classes = useStyles({ image });
   const themeContext = useContext(ThemeContext);
   return (
@@ -88,7 +89,7 @@ const ProjectItem = ({ image, title, liveLink, codeLink, id, type }) => {
       width='90%'
       height='fit-content'
     >
-      <Typography className={classes.type}>{type}</Typography>
+      <Typography className={classes.type}>{projectType}</Typography>
       <Typography component='h3' variant='h5' className={classes.subtitle}>
         {title}
       </Typography>
@@ -102,25 +103,25 @@ const ProjectItem = ({ image, title, liveLink, codeLink, id, type }) => {
           component='a'
           target='_blank'
           rel="noopener noreferrer"
-          href={liveLink}
-          disabled={!liveLink}
+          href={siteLink}
+          disabled={!siteLink}
           endIcon={<LinkIcon />}
           color={`${themeContext.themeMode === 'dark' ? 'secondary' : 'primary'}`}
         >
           Live site
         </Button>
-          <Button
-            variant='text'
-            component='a'
-            target='_blank'
-            rel="noopener noreferrer"
-            href={codeLink}
-            disabled={!codeLink}
-            endIcon={<CodeIcon />}
-            color={`${themeContext.themeMode === 'dark' ? 'secondary' : 'primary'}`}
-          >
-            Code {codeLink === '' && 'N/A'}
-          </Button>
+        <Button
+          variant='text'
+          component='a'
+          target='_blank'
+          rel="noopener noreferrer"
+          href={codeLink}
+          disabled={!codeLink}
+          endIcon={<CodeIcon />}
+          color={`${themeContext.themeMode === 'dark' ? 'secondary' : 'primary'}`}
+        >
+          Code {codeLink === '' && 'N/A'}
+        </Button>
       </ButtonGroup>
 
       <Divider classes={{ root: classes.divider }} />
@@ -132,7 +133,8 @@ const ProjectItem = ({ image, title, liveLink, codeLink, id, type }) => {
         color={`${themeContext.themeMode === 'dark' ? 'secondary' : 'primary'}`}
         endIcon={<ArrowRightAltIcon />}
         component={Link}
-        to={`/portfolio/${id}`}
+        onClick={scrollTopClick}
+        to={`/portfolio/${slug}`}
       >
         More details
       </Button>
