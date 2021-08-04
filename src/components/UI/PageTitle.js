@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
       content: '""',
       backgroundImage: `url('${heroImage}')`,
       backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'left',
+      backgroundPosition: 'left center',
       // backgroundAttachment: 'fixed',
       // transform: 'scale(1.3)',
       // opacity: .2,
@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
       // transform: 'scaleX(-1)'
       [theme.breakpoints.up(992)]: {
         transform: 'scale(1.2)',
-        backgroundAttachment: 'fixed',
+        // backgroundAttachment: 'fixed',
       },
     }
   },
